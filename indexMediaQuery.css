@@ -1,0 +1,43 @@
+@media only screen and (max-width: 1050px) {
+    #div1{
+        position: absolute !important;
+        top: 0 !important;
+        width: 100% !important;
+        height: 40% !important;
+    }
+    #div2{
+        position: absolute !important;
+        top: 40% !important;
+        width: 100% !important;
+        height: 40% !important;
+    }
+    #div3{
+        position: absolute !important;
+        top: 80% !important;
+        width: 100% !important;
+        height: 40% !important;
+    }
+
+    #overlay1, #overlay2, #overlay3{
+        opacity: 30% !important;
+    }
+    h1{
+        text-align: center !important;
+        padding: 0.5rem !important;
+        text-decoration: underline;
+    }
+    body{
+        overflow-x: hidden !important;
+    }
+  }
+
+@media only screen and (max-width: 350px) {
+    h1{
+        font-size: 1.75rem;
+    }
+}
+@media only screen and (max-width: 270px) {
+    h1{
+        font-size: 1.5rem;
+    }
+}
