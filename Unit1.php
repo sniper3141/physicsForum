@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="./SubPage.js" type="module"></script>
     <link rel="stylesheet" href="Unit1MediaQuery.css">
+    <script src="SubPage.js"></script>
     <title>Physics Posters</title>
     <style>
         img{
@@ -30,7 +30,7 @@
             display: flex;
             justify-content: space-around;
             background-color: black;
-            margin-bottom: 4rem;  
+            margin-bottom: 1rem;  
             margin-top: 0;   
             position: sticky;   
             top: 0; 
@@ -146,6 +146,36 @@
             font-weight: 800;
             margin-top: 11rem;
             color:#222020;
+        }
+        .forumButtons{
+            display: flex;
+            font-family: Arial, Helvetica, sans-serif;
+            margin-left: 0rem;
+            padding: 0.5rem;
+            margin-top: 0.5rem;
+            font-size: 1.25rem;
+            font-weight: 600;
+        }
+        .forumButtons:hover{
+            color: white;
+        }
+        #forumTitle{
+            display: block;
+            padding-left: 0rem;
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+        #wrapper{
+            display: flex;
+            justify-content: flex-start;
+        }
+
+        #fullWrapper{
+            border: black solid 0.2rem;
+            display: block;
+            width: 10.15rem;
+            margin-left: 3rem;
+            padding: 0.5rem;
         }
 
     </style>
@@ -427,6 +457,16 @@
                 return
             }
         }
+
+        function signUpPage(){
+            localStorage.setItem("changePage", "signUp");
+            window.location.href = "signup.php"
+        }
+        
+        function loginPage(){
+            localStorage.setItem("changePage", "login");
+            window.location.href = "signup.php"
+        }
         
     </script>
 
@@ -441,6 +481,13 @@
             <img src="arrow.png" class="hidden arrow" onclick="changeRight()">
         </ul>
         <main id="notNav">
+            <section id="fullWrapper">
+                <p id="forumTitle">Forum: </p>
+                <section id="wrapper">
+                    <a class="forumButtons sign" onclick="signUpPage()">Sign Up</a>
+                    <a class="forumButtons log" onclick="loginPage()">Login</a>
+                </section>
+            </section>
         <ul id="imageList">
             
             <li class="imageItem" id="item1" onmouseover="hoverStateIn('1')" onmouseout="hoverStateOut('1')" onclick="openModal('img0')">

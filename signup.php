@@ -11,16 +11,26 @@
             display: none;
         }
     </style>
+    <script>
+        function checkPage(){
+            if (localStorage.getItem("changePage") == "login"){
+                changeMode();
+            }
+        }
+
+        function storePage(){
+            if (document.querySelector(".redirect").classList.contains("signup")){
+                localStorage.setItem("changePage", "signup");
+            }
+            else if (document.querySelector(".redirect").classList.contains("login")){
+                localStorage.setItem("changePage", "login");
+            }
+        }
+    </script>
 </head>
-<body>
+<body onload="checkPage()">
     <h1 class="title signup">Sign Up</h1>
     <form class='form signup' action="./includes/sign_up.inc.php" method="post" autocomplete="off">
-
-        <div>
-            <input type="text" name="uname" required>
-            <span>Username</span>
-            <i></i>
-        </div>
 
         <div>
             <input type="email" name="mail" required>
@@ -35,7 +45,7 @@
         </div>
 
         <div>
-            <input type="password" name="confirm-password" class="confirmPassword"required>
+            <input id="confirmPass" type="password" name="confirm-password" class="confirmPassword" required>
             <span class="confirmPasswordText">Confirm Password</span>
             <i></i>
         </div>
@@ -47,4 +57,5 @@
         
     </form>
 </body>
+<script src="Subpage.js"></script>
 </html>
