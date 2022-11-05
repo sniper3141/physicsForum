@@ -1,5 +1,6 @@
 function changeMode(){
     if (document.querySelector(".redirect").classList.contains("signup")){
+        document.querySelector("#signUpHalf").style.left = "50%";
         document.querySelector(".redirect").classList.remove("signup");
         document.querySelector(".title").classList.remove("signup");
         document.querySelector(".form").classList.remove("signup");
@@ -7,11 +8,15 @@ function changeMode(){
         document.querySelector(".redirect").classList.add("login");
         document.querySelector(".title").classList.add("login");
         document.querySelector(".form").classList.add("login");
-        document.querySelector(".redirect").innerHTML = "Don't have an account?"
+        document.querySelector(".redirect").innerHTML = "Don't have an account?";
         document.querySelector(".form").action = "./includes/login.inc.php";
         document.querySelector("#confirmPass").removeAttribute('required');
+        document.querySelector("#welcomeInfo").innerHTML = "Login to access this physics forum";
+        document.querySelector(".sign-up-button").value = "Login";
+        
     }
     else if (document.querySelector(".redirect").classList.contains("login")){
+        document.querySelector("#signUpHalf").style.left = "0%";
         document.querySelector(".redirect").classList.remove("login");
         document.querySelector(".title").classList.remove("login");
         document.querySelector(".form").classList.remove("login");
@@ -19,9 +24,12 @@ function changeMode(){
         document.querySelector(".redirect").classList.add("signup");
         document.querySelector(".title").classList.add("signup");
         document.querySelector(".form").classList.add("signup");
-        document.querySelector(".redirect").innerHTML = "Already have an account?"
+        document.querySelector(".redirect").innerHTML = "Already a User? Login";
         document.querySelector(".form").action = "./includes/sign_up.inc.php";
         document.querySelector("#confirmPass").setAttribute('required', 'required');
+        document.querySelector("#welcomeInfo").innerHTML = "Create an account to join a community of physicists";
+        document.querySelector(".sign-up-button").value = "Sign Up";
+        
     }
 
     changeContent();
@@ -39,6 +47,6 @@ function changeContent(){
         document.querySelector(".confirmPassword").classList.add("hidden");
         document.querySelector(".confirmPasswordText").classList.add("hidden");       
     }
-
+    
     storePage();
 }
