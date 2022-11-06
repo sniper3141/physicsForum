@@ -161,3 +161,80 @@ function loginUser($conn, $email, $pwd) {
         exit();
     }
 }
+
+function queryUserId($conn, $email, $question){
+    //sets the sql statement to find tempCode
+    $sql = "SELECT id FROM users WHERE usersEmail = ?";
+    $stmt = mysqli_stmt_init($conn);
+
+    if (!mysqli_stmt_prepare($stmt, $sql)) {
+        header("location: ../index.php?error=stmtfailed");
+        exit();
+    }
+
+    mysqli_stmt_bind_param($stmt, "s", $email);
+    mysqli_stmt_execute($stmt);
+
+    $resultData = mysqli_stmt_get_result($stmt); 
+    $data = mysqli_fetch_assoc($resultData);
+    print_r($data["id"]);
+    $dataOutOfArray = $data["id"];
+    session_start();
+    $_SESSION["emailId"] = $dataOutOfArray;
+    mysqli_stmt_close($stmt);
+    
+    addPrimaryQuestion($conn, $dataOutOfArray, $question);
+}
+
+function addPrimaryQuestion($conn, $emailId, $question) {
+    
+    // sets up the sql statement with placeholder values at the moment so that our database cannot be 'corrupted' by users
+    $sql = "INSERT INTO primaryforum (questionText, senderId) VALUES (?, ?);";
+    $stmt = mysqli_stmt_init($conn);
+
+    //error message if something fails
+    if (!mysqli_stmt_prepare($stmt, $sql)) {
+        header("location: ../mainForum.php?error=stmtfailed");
+        exit();
+    }
+
+    mysqli_stmt_bind_param($stmt, "ss", $question, $emailId);
+    mysqli_stmt_execute($stmt);
+    mysqli_stmt_close($stmt);
+    header("location: ../mainForum.php?i=$_SESSION[random]");
+    exit();
+}
+
+function getInfo($conn){
+
+    $sqlQuery = "SELECT questionText, timeOfSend, usersEmail FROM primaryForum, users WHERE users.id = primaryforum.senderId;";
+    $stmt = mysqli_stmt_init($conn);
+
+    //error message if something fails
+    if (!mysqli_stmt_prepare($stmt, $sqlQuery)) {
+        //takes user to the main page
+        $_SESSION["random"] = rand();
+        header("location: ../mainForum.php?i=$_SESSION[random]&error=stmtfailed");
+        exit();
+    }
+
+
+    mysqli_stmt_execute($stmt);
+
+    $data = array();
+
+    $result = mysqli_stmt_get_result($stmt);
+    
+    // print_r($result);
+    
+
+    while ($row = mysqli_fetch_object($result)) {
+        foreach ($row as $r) {
+            // print($r);
+            $new = array_push($data, $r);
+        }
+    }
+
+    // print_r($data);
+    return $data;
+}
