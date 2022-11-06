@@ -1,5 +1,19 @@
 function changeMode(){
+    document.querySelector("#errorText").classList.add("hidden")
+    document.querySelector("#email").style.borderColor = "#d3d3d3"
+    document.querySelector("#confirmPass").style.borderColor = "#d3d3d3";
+    document.querySelector("#pass").style.borderColor = "#d3d3d3";
+    document.querySelector(".passNotMatch").classList.add("hidden");
+    document.querySelector(".passNotLong").classList.add("hidden");
+    document.querySelector("#email").value = "";
+    document.querySelector("#pass").value = "";
+    document.querySelector("#confirmPass").value = "";
+    document.querySelector(".sign-up-button").disabled = true;
+    document.querySelector(".sign-up-button").style.backgroundColor = "#6b6e8b";
+
+
     if (document.querySelector(".redirect").classList.contains("signup")){
+        document.querySelector("#signUpHalf").classList.remove("left");
         document.querySelector("#signUpHalf").style.left = "50%";
         document.querySelector(".redirect").classList.remove("signup");
         document.querySelector(".title").classList.remove("signup");
@@ -16,6 +30,7 @@ function changeMode(){
         
     }
     else if (document.querySelector(".redirect").classList.contains("login")){
+        document.querySelector("#signUpHalf").classList.remove("right");
         document.querySelector("#signUpHalf").style.left = "0%";
         document.querySelector(".redirect").classList.remove("login");
         document.querySelector(".title").classList.remove("login");
@@ -49,4 +64,97 @@ function changeContent(){
     }
     
     storePage();
+}
+
+function checkValid(){
+    if (!document.querySelector(".input").value.includes("@esms.org.uk") && document.querySelector(".input").value !== ""){
+        document.querySelector("#email").style.borderColor = "#EA6565";
+        document.querySelector("#errorText").classList.remove("hidden");
+        document.querySelector(".sign-up-button").disabled = true;
+        document.querySelector(".sign-up-button").style.backgroundColor = "#6b6e8b";
+    }
+    else if(document.querySelector(".input").value == ""){
+        document.querySelector("#email").style.borderColor = "#d3d3d3";
+        document.querySelector("#errorText").classList.add("hidden");
+        document.querySelector(".sign-up-button").disabled = true;
+        document.querySelector(".sign-up-button").style.backgroundColor = "#6b6e8b";
+    }
+    else{
+        document.querySelector("#email").style.borderColor = "green";
+        document.querySelector("#errorText").classList.add("hidden");
+        document.querySelector(".sign-up-button").disabled = true;
+        document.querySelector(".sign-up-button").style.backgroundColor = "#6b6e8b";
+    }
+
+    if (document.querySelector("#email").style.borderColor == "green" && document.querySelector("#pass").style.borderColor == "#green" && document.querySelector("#confirmPass").style.borderColor == "#green"){
+        document.querySelector(".sign-up-button").disabled = false;
+        document.querySelector(".sign-up-button").backgroundColor = "#3E50FB";
+    }
+}
+
+function validPass(){
+    if (document.querySelector(".sign-up-button").value !== "Login"){
+
+        if(document.querySelector("#pass").value.length < 8 && document.querySelector("#pass").value !== ""){
+            document.querySelector("#pass").style.borderColor = "#EA6565";
+            document.querySelector(".passNotMatch").classList.add("hidden");
+            document.querySelector("#confirmPass").style.borderColor = "#d3d3d3";
+            document.querySelector(".passNotLong").classList.remove("hidden");
+            document.querySelector(".sign-up-button").disabled = true;
+            document.querySelector(".sign-up-button").style.backgroundColor = "#6b6e8b";
+        }
+        else if(document.querySelector("#pass").value == "" || document.querySelector("#confirmPass").value == "" ){
+            document.querySelector("#pass").style.borderColor = "#d3d3d3";
+            document.querySelector(".passNotLong").classList.add("hidden");
+            document.querySelector("#confirmPass").style.borderColor = "#d3d3d3";
+            document.querySelector(".passNotMatch").classList.add("hidden");
+            document.querySelector(".sign-up-button").disabled = true;
+            document.querySelector(".sign-up-button").style.backgroundColor = "#6b6e8b";
+        }
+        else if (document.querySelector("#pass").value !== document.querySelector("#confirmPass").value && document.querySelector("#pass").value !== "" && document.querySelector("#confirmPass").value !== ""){
+            document.querySelector("#pass").style.borderColor = "#EA6565";
+            document.querySelector("#confirmPass").style.borderColor = "#EA6565";
+            document.querySelector(".passNotLong").classList.add("hidden");
+            document.querySelector(".passNotMatch").classList.remove("hidden");
+            document.querySelector(".sign-up-button").disabled = true;
+            document.querySelector(".sign-up-button").style.backgroundColor = "#6b6e8b";
+        }
+
+        else if(document.querySelector("#pass").value !== "" && document.querySelector("#confirmPass").value !== ""){
+            document.querySelector("#pass").style.borderColor = "green";
+            document.querySelector("#confirmPass").style.borderColor = "green";
+            document.querySelector(".passNotMatch").classList.add("hidden");
+            document.querySelector(".passNotLong").classList.add("hidden");
+            document.querySelector(".sign-up-button").disabled = true;
+            document.querySelector(".sign-up-button").style.backgroundColor = "#6b6e8b";
+        }
+        if (document.querySelector("#email").style.borderColor == "green" && document.querySelector("#pass").style.borderColor == "green" && document.querySelector("#confirmPass").style.borderColor == "green"){
+            document.querySelector(".sign-up-button").disabled = false;
+            document.querySelector(".sign-up-button").style.backgroundColor = "#3E50FB";
+        }
+    }
+    else{
+        if (document.querySelector("#pass").value.length < 8 && document.querySelector("#pass").value !== ""){
+            document.querySelector("#pass").style.borderColor = "#EA6565";
+            document.querySelector(".passNotLong").classList.remove("hidden");
+            document.querySelector(".sign-up-button").disabled = true;
+            document.querySelector(".sign-up-button").style.backgroundColor = "#6b6e8b";
+        }
+        else if(document.querySelector("#pass").value.length >= 8){
+            document.querySelector("#pass").style.borderColor = "green";
+            document.querySelector(".passNotLong").classList.add("hidden");
+            document.querySelector(".sign-up-button").disabled = true;
+            document.querySelector(".sign-up-button").style.backgroundColor = "#6b6e8b";
+        }
+        else{
+            document.querySelector("#pass").style.borderColor = "#d3d3d3";
+            document.querySelector(".passNotLong").classList.add("hidden");
+            document.querySelector(".sign-up-button").disabled = true;
+            document.querySelector(".sign-up-button").style.backgroundColor = "#6b6e8b";
+        }
+        if (document.querySelector("#email").style.borderColor == "green" && document.querySelector("#pass").style.borderColor == "green"){
+            document.querySelector(".sign-up-button").disabled = false;
+            document.querySelector(".sign-up-button").style.backgroundColor = "#3E50FB";
+        }
+    }
 }

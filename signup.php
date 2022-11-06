@@ -15,6 +15,7 @@
     <script>
 
         function checkPage(){
+            document.querySelector("#signUpHalf").classList.add("left");
             if (localStorage.getItem("changePage") == "login"){
                 document.querySelector("#signUpHalf").classList.add("right");
                 changeMode();
@@ -43,24 +44,27 @@
             <form class='form signup' action="./includes/sign_up.inc.php" method="post" autocomplete="off">
 
                 <div>
-                    <span class="inputTitle">Email</span>
-                    <input type="email" name="mail" class="input" required> 
+                    <span class="inputTitle" >Email</span>
+                    <input type="email" name="mail" class="input" id="email" onfocusout="checkValid()" required>
+                    <h4 class="hidden" id="errorText">Invalid Email</h4> 
                     <i></i>
                 </div>
 
                 <div>
                     <span class="inputTitle">Password</span>
-                    <input type="password" name="password" class="input" required>
+                    <input type="password" name="password" class="input password" id="pass" onfocusout="validPass()" required>
+                    <h4 id="errorText" class="hidden passNotLong">Password Must be at Least 8 characters</h4>
                     <i></i>
                 </div>
 
                 <div>
                     <span class="confirmPasswordText inputTitle">Confirm Password</span>
-                    <input id="confirmPass" type="password" name="confirm-password" class="confirmPassword input" required>
+                    <input id="confirmPass" type="password" name="confirm-password" class="confirmPassword input password" id="confirmPass" onfocusout="validPass()" required>
+                    <h4 id="errorText" class="hidden passNotMatch">Passwords Don't Match</h4>
                     <i></i>
                 </div>
 
-                <input type="submit" name="submit" placeholder="Submit" class="submit sign-up-button" value="Sign Up">
+                <input type="submit" name="submit" placeholder="Submit" class="submit sign-up-button" value="Sign Up" disabled>
                 
 
 
