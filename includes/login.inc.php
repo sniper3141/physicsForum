@@ -13,7 +13,7 @@ if (isset($_POST["submit"])) {
 
     //calls the function in function.inc.php to check if all fields are filled out
     if (emptyInputLogin($email, $pwd) !== false) {
-        header("location: ../index.php?error=loginemptyinput");
+        header("location: ../signup.php?error=loginemptyinput");
         exit();
     }
 
@@ -24,6 +24,6 @@ if (isset($_POST["submit"])) {
 //if the form method is not submit i.e a user tries to change the url to access a page that they should not have access to 
 //then send them back to the index page
 else {
-    header("location: ../index.php");
+    header("location: ../signup.php");
     exit();
 }

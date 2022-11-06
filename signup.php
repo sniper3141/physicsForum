@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/signupPage2.css"><link>
+    <link rel="stylesheet" href="css/signupPage3.css"><link>
     <script src="Subpage.js"></script>
     <title>Document</title>
     <style>
@@ -30,7 +30,11 @@
                 localStorage.setItem("changePage", "login");
             }
         }
+
+        
+        
     </script>
+    
 </head>
 <body onload="checkPage()">
     <section id="overlay"></section>
@@ -61,6 +65,7 @@
                     <span class="confirmPasswordText inputTitle">Confirm Password</span>
                     <input id="confirmPass" type="password" name="confirm-password" class="confirmPassword input password" id="confirmPass" onfocusout="validPass()" required>
                     <h4 id="errorText" class="hidden passNotMatch">Passwords Don't Match</h4>
+                    <h4 id="errorText" class="hidden incorrectLogin" id="incorrect">Incorrect Email or Password</h4>
                     <i></i>
                 </div>
 
@@ -70,7 +75,7 @@
 
 
             </form>
-            <p class='redirect signup' id="secondCTA" onclick="changeMode()">Already a User? Login</p>
+            <p class='redirect signup' id="secondCTA" onclick="changeMode(); hideError()">Already a User? Login</p>
         </section>
     </section>
     <section id="imgSection">
@@ -79,5 +84,25 @@
     </section>
 </body>
 
-<script src="./javascript/signupPage2.js"></script>
+
+<script>
+    function incorrectLogin(){
+            document.addEventListener("DOMContentLoaded", () => {
+                document.querySelector(".incorrectLogin").classList.remove("hidden");
+            })  
+        }
+
+        function hideError(){
+            document.querySelector(".incorrectLogin").classList.add("hidden");
+        }
+</script>
+<?php
+        if (isset($_GET["error"])){
+            if ($_GET["error"] == "wronglogin"){
+                echo '<script type="text/javascript">incorrectLogin();</script>';
+            }
+        }
+            
+?>
+<script src="./javascript/signupPage3.js"></script>
 </html>

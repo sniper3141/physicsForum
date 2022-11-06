@@ -1,8 +1,9 @@
 function changeMode(){
     document.querySelector("#errorText").classList.add("hidden")
     document.querySelector("#email").style.borderColor = "#d3d3d3"
-    document.querySelector("#confirmPass").style.borderColor = "#d3d3d3";
+    // document.querySelector("#confirmPass").style.borderColor = "#d3d3d3";
     document.querySelector("#pass").style.borderColor = "#d3d3d3";
+    
     document.querySelector(".passNotMatch").classList.add("hidden");
     document.querySelector(".passNotLong").classList.add("hidden");
     document.querySelector("#email").value = "";
@@ -139,6 +140,7 @@ function validPass(){
             document.querySelector(".passNotLong").classList.remove("hidden");
             document.querySelector(".sign-up-button").disabled = true;
             document.querySelector(".sign-up-button").style.backgroundColor = "#6b6e8b";
+            
         }
         else if(document.querySelector("#pass").value.length >= 8){
             document.querySelector("#pass").style.borderColor = "green";
@@ -158,3 +160,4 @@ function validPass(){
         }
     }
 }
+
