@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/home.css">
+    <link rel="stylesheet" href="css/homeMediaQueries.css">
     <title>ESMS Physics Hub</title>
 </head>
 <body>
@@ -12,7 +13,7 @@
         <div class="wrapper">
             <img src="Logo.png" alt="logo" id="logo">
             <h2 id="logoText1">hysics</h2>
-            <h2 id="logoText2">eart</h2>
+            <h2 id="logoText2">ome</h2>
 
             <div id="navWrapper">
                 <ul id="navUl">
@@ -22,7 +23,7 @@
                 </ul>
             </div>
             <h1 id="mainTitle" class="scroll">Welcome</h1>
-            <p id="subTitle">to the heart of ESMS Physics</p>
+            <p id="subTitle">to the home of ESMS Physics</p>
             <button id="posterBtn">Posters</button>
             <div id="arrowWrapper">
                 <img src="arrow5.png" alt="arrow for more" id="arrow">
@@ -78,6 +79,14 @@
             const postersTarget3 = document.querySelector("#postersLink3");
             var postRate3 = scrolled * -0.1;
             postersTarget3.style.transform = "translate3d(0px, "+postRate3+"px, 0px)";
+
+            // const logoTarget = document.querySelector("#logo");
+            // const logoTarget1 = document.querySelector("#logoText1");
+            // const logoTarget2 = document.querySelector("#logoText2");
+            // var logoRate = scrolled * -0.025;
+            // logoTarget.style.transform = "translate3d("+logoRate+"px, 0px, 0px)";
+            // logoTarget1.style.transform = "translate3d("+(-logoRate)+"px, 0px, 0px)";
+            // logoTarget2.style.transform = "translate3d("+(-logoRate)+"px, 0px, 0px)";
 
             
 
