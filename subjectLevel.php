@@ -13,6 +13,7 @@
             width: 33.333%;
             height: 100%;
             /* background-image: url("Gravitation-and-motion.png"); */
+            background-color: #D9514EFF;
             transition: width 500ms ease-in-out;
             position: relative;
             display: flex;
@@ -23,6 +24,7 @@
             width: 33.333%;
             height: 100%;
             /* background-image: url("Particles-and-Waves.png"); */
+            background-color: #2A2B2DFF;
             background-position: center;
             transition: width 500ms ease-in-out;
             position: relative;
@@ -37,6 +39,7 @@
             height: 100%;
             transition: width 500ms ease-in-out;
             /* background-image: url("Electromagnetism-Colage.png"); */
+            background-color: #2DA8D8FF;
             position: relative;
             display: flex;
             justify-content: center;
@@ -62,7 +65,7 @@
         }
         #div3:hover{
             width: 75%;
-            background-color: rgba(255, 0, 0, 0);
+            /* background-color: rgba(255, 0, 0, 0); */
             filter: drop-shadow(0 0 0.75rem black);
         }
         #overlay3{
@@ -103,7 +106,7 @@
         h1{
             z-index: 1;
             color: white;
-            font-size: 2.438rem;
+            font-size: 2.2rem;
             font-family: Arial, Helvetica, sans-serif;
             padding: 10px;
             background-color: rgba(16, 15, 15, 0);
@@ -111,7 +114,9 @@
             
         }
         
-
+        #center{
+            text-align: center;
+        }
     </style>
 
     <script>
@@ -129,44 +134,25 @@
         // function newPage(pageIndex){
         //     window.location.href = `Unit${pageIndex}.html`;
         // }
-        function checkUnit(){
-            console.log(localStorage.getItem("storedUnit"));
-            if (localStorage.getItem("storedUnit") == "Nat 5"){
-                document.querySelector("#div1").style.backgroundColor = "hotpink";
-                // document.querySelector("#div1").style.backgroundImage = "none";
-                document.querySelector("#div2").style.backgroundColor = "dodgerblue";
-                document.querySelector("#div3").style.backgroundColor = "dodgerblue";
-            }
-            else if (localStorage.getItem("storedUnit") == "Higher"){
-                document.querySelector("#div1").style.backgroundImage = "url('Gravitation-and-motion.png')"
-                document.querySelector("#div2").style.backgroundImage = "url('Particles-and-Waves.png')"
-                document.querySelector("#div3").style.backgroundImage = "url('Electromagnetism-Colage.png')"
-            }
-            else {
-                document.querySelector("#div1").style.backgroundColor = "green";
-                document.querySelector("#div2").style.backgroundColor = "red";
-                document.querySelector("#div3").style.backgroundColor = "orange";
-            }
-        }
     </script>
     <script>
         
     </script>
 
 </head>
-<body onload="checkUnit()">
-    <div id="div1" onmouseover="backgroundOn('Grav')" onmouseout="backgroundOff('Grav')">
+<body>
+    <div id="div1" onmouseover="backgroundOn('Grav')" onmouseout="backgroundOff('Grav')" onclick="toUnits('Nat5')">
         <div id="overlay1"></div>
-        <h1 id="Grav">Gravitation and Motion</h1>
+        <h1 id="Grav">National 5 Physics</h1>
     </div>
-    <div id="div2" onmouseover="backgroundOn('Part')" onmouseout="backgroundOff('Part')">
+    <div id="div2" onmouseover="backgroundOn('Part')" onmouseout="backgroundOff('Part')" onclick="toUnits('Higher')">
         <div id="overlay2"></div>
-        <h1 id="Part">Particles and Waves</h1>
+        <h1 id="Part">Higher Physics</h1>
     </div>
-    <div id="div3" onmouseover="backgroundOn('Elec')" onmouseout="backgroundOff('Elec')">
+    <div id="div3" onmouseover="backgroundOn('Elec')" onmouseout="backgroundOff('Elec')" onclick="toUnits('AH')">
         <div id="overlay3"></div>
-        <h1 id="Elec">Electromagnetism</h1>
+        <h1 id="Elec">Advanced Higher<br><div id="center">Physisc<div></h1>
     </div>
 </body>
-<script src="./main.js" type="text/javascript"></script>
+<script src="./javascript/subjectLevel.js" type="text/javascript"></script>
 </html>
