@@ -18,6 +18,9 @@
             display: flex;
             justify-content: center;
             align-items: center;
+            background-repeat: no-repeat;
+            /* background-attachment: fixed; */
+            background-position: center;
         }
         #div2{
             width: 33.333%;
@@ -29,6 +32,9 @@
             display: flex;
             justify-content: center;
             align-items: center;
+            background-repeat: no-repeat;
+            /* background-attachment: fixed; */
+            background-position: center;
             
 
         }
@@ -41,6 +47,9 @@
             display: flex;
             justify-content: center;
             align-items: center;
+            background-repeat: no-repeat;
+            /* background-attachment: fixed; */
+            background-position: center;
 
         }
         body{
@@ -130,24 +139,109 @@
         //     window.location.href = `Unit${pageIndex}.html`;
         // }
         function checkUnit(){
-            console.log(localStorage.getItem("storedUnit"));
-            if (localStorage.getItem("storedUnit") == "Nat 5"){
-                document.querySelector("#div1").style.backgroundColor = "hotpink";
+            if (localStorage.getItem("storedUnit") == "Nat5"){
+                document.querySelector("#div1").style.backgroundImage = "url('/Nat 5 Posters/Waves, Radiation & Properties of Matter/Waves.png')";
                 // document.querySelector("#div1").style.backgroundImage = "none";
                 document.querySelector("#div2").style.backgroundColor = "dodgerblue";
-                document.querySelector("#div3").style.backgroundColor = "dodgerblue";
+                document.querySelector("#div3").style.backgroundColor = "hotpink";
+                document.querySelector("#title1").innerText = "Waves, Radiation and Properties of Matter"
+                document.querySelector("#title2").innerText = "Electricity"
+                document.querySelector("#title3").innerText = "Dynamics and Space"
+                console.log(localStorage.getItem("storedUnit"));
+                
             }
             else if (localStorage.getItem("storedUnit") == "Higher"){
                 document.querySelector("#div1").style.backgroundImage = "url('Gravitation-and-motion.png')"
                 document.querySelector("#div2").style.backgroundImage = "url('Particles-and-Waves.png')"
                 document.querySelector("#div3").style.backgroundImage = "url('Electromagnetism-Colage.png')"
+                document.querySelector("#title1").innerText = "Gravitation and Motion"
+                document.querySelector("#title2").innerText = "Particles and Waves"
+                document.querySelector("#title3").innerText = "Electromagnetism"
             }
             else {
-                document.querySelector("#div1").style.backgroundColor = "green";
-                document.querySelector("#div2").style.backgroundColor = "red";
-                document.querySelector("#div3").style.backgroundColor = "orange";
+                document.querySelector("#div1").style.backgroundColor = "#f1f1f1";
+                document.querySelector("#div2").style.backgroundColor = "#f1f1f1";
+                document.querySelector("#div3").style.backgroundColor = "#f1f1f1";
+                // document.querySelector("#title1").innerText = "Gravitation and Motion"
+                document.querySelector("#title2").innerText = "Comming Soon";
+                // document.querySelector("#title3").innerText = "Electromagnetism"
             }
         }
+        //Nat 5
+
+        function waves(){
+            localStorage.setItem("storedVar", "Waves")
+            window.location.href = `Unit1.php`; 
+        }
+        
+        function electricity(){
+            localStorage.setItem("storedVar", "Electricity")
+            window.location.href = `Unit1.php`;
+        }
+        
+        function dynamics(){
+            localStorage.setItem("storedVar", "Dynamics")
+            window.location.href = `Unit1.php`;
+        }
+        
+        
+        
+        //Higher
+        
+        function gravitation(){
+            localStorage.setItem("storedVar", "Gravitation")
+            window.location.href = `Unit1.php`; 
+        }
+        
+        function particles(){
+            localStorage.setItem("storedVar", "Particles")
+            window.location.href = `Unit1.php`;
+        }
+        
+        function electro(){
+            localStorage.setItem("storedVar", "Electro")
+            window.location.href = `Unit1.php`;
+        }
+        
+        
+        //Advanced Higher
+        
+        
+        function rotationAndAstro(){
+            localStorage.setItem("storedVar", "RotationAndAstro")
+            window.location.href = `Unit1.php`; 
+        }
+        
+        function quanta(){
+            localStorage.setItem("storedVar", "Quanta")
+            window.location.href = `Unit1.php`;
+        }
+        
+        function AHElectro(){
+            localStorage.setItem("storedVar", "AHElectro")
+            window.location.href = `Unit1.php`;
+        }
+        document.addEventListener("DOMContentLoaded", function(){
+            if (localStorage.getItem("storedUnit") == "Nat5"){
+                console.log("hello1")
+                document.getElementById("div1").addEventListener("click", waves);
+                document.getElementById("div2").addEventListener("click", electricity);
+                document.getElementById("div3").addEventListener("click", dynamics);
+            }
+            else if (localStorage.getItem("storedUnit") == "Higher"){
+                document.getElementById("div1").addEventListener("click", gravitation);
+                document.getElementById("div2").addEventListener("click", particles);
+                document.getElementById("div3").addEventListener("click", electro);
+            }
+            else{
+                document.getElementById("div1").addEventListener("click", rotationAndAstro);
+                document.getElementById("div2").addEventListener("click", quanta);
+                document.getElementById("div3").addEventListener("click", AHElectro);
+            }
+        })
+        
+
+        
     </script>
     <script>
         
@@ -155,17 +249,17 @@
 
 </head>
 <body onload="checkUnit()">
-    <div id="div1" onmouseover="backgroundOn('Grav')" onmouseout="backgroundOff('Grav')">
+    <div id="div1" onmouseover="backgroundOn('title1')" onmouseout="backgroundOff('title1')">
         <div id="overlay1"></div>
-        <h1 id="Grav">Gravitation and Motion</h1>
+        <h1 id="title1"></h1>
     </div>
-    <div id="div2" onmouseover="backgroundOn('Part')" onmouseout="backgroundOff('Part')">
+    <div id="div2" onmouseover="backgroundOn('title2')" onmouseout="backgroundOff('title2')">
         <div id="overlay2"></div>
-        <h1 id="Part">Particles and Waves</h1>
+        <h1 id="title2"></h1>
     </div>
-    <div id="div3" onmouseover="backgroundOn('Elec')" onmouseout="backgroundOff('Elec')">
+    <div id="div3" onmouseover="backgroundOn('title3')" onmouseout="backgroundOff('title3')">
         <div id="overlay3"></div>
-        <h1 id="Elec">Electromagnetism</h1>
+        <h1 id="title3"></h1>
     </div>
 </body>
 <script src="./main.js" type="text/javascript"></script>

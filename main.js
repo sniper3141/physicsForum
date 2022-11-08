@@ -18,26 +18,4 @@
     
 // };
 
-document.getElementById("div1").addEventListener("click", gravitation);
-document.getElementById("div2").addEventListener("click", particles);
-document.getElementById("div3").addEventListener("click", electro);
-
-function gravitation(){
-    localStorage.setItem("storedVar", "Gravitation")
-    window.location.href = `Unit1.php`;
-    
-}
-
-function particles(){
-    localStorage.setItem("storedVar", "Particles")
-    window.location.href = `Unit1.php`;
-}
-
-function electro(){
-    localStorage.setItem("storedVar", "Electro")
-    window.location.href = `Unit1.php`;
-}
-
-
-
 

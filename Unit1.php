@@ -245,6 +245,8 @@
 
         
         function PageLoad(){
+            console.log(localStorage.getItem("storedVar"))
+            // Loads the gravitation images and text for Higher
             if (localStorage.getItem("storedVar") == "Gravitation"){
                 document.querySelector("#GravitationNav").classList.add("underline");
                 document.querySelector("#img1").src = "Unit 1 Photos/Physics Motion Poster6.0.jpg";
@@ -320,6 +322,18 @@
                 document.querySelector("#info5").innerHTML = "Semiconductors, Band Structure, N and P type and n-p Junction";
                 document.querySelector("#img6").src = "Unit 3 Photos/LEDs-and-Photodiodes.png";
                 document.querySelector("#info6").innerHTML = "LEDs,Photodiodes and Photovoltaic Mode ";
+                for (let i = 7; i <= 8; i++){
+                    document.querySelector(`#item${i}`).classList.add("hidden");
+                }
+            }
+
+            else if (localStorage.getItem("storedVar") == "Waves"){
+                document.querySelector("#ElectroNav").classList.add("underline");
+
+
+                document.querySelector("#img1").src = '/Nat 5 Posters/Waves, Radiation & Properties of Matter/Waves.png';
+                document.querySelector("#info1").innerHTML = "Transvers and Longitudinal Waves and their properties";
+                
                 for (let i = 7; i <= 8; i++){
                     document.querySelector(`#item${i}`).classList.add("hidden");
                 }
