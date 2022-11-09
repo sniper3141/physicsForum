@@ -27,8 +27,10 @@
         }
 
         #navWrapper{
-            display: flex;
-            justify-content: space-around;
+            display: grid;
+            /* justify-content: space-around; */
+            grid-template-columns: 33.3% 33.3% 33.3%;
+            align-items: center;
             background-color: black;
             margin-bottom: 1rem;  
             margin-top: 0;   
@@ -249,6 +251,9 @@
             // Loads the gravitation images and text for Higher
             if (localStorage.getItem("storedVar") == "Gravitation"){
                 document.querySelector("#GravitationNav").classList.add("underline");
+                document.querySelector("#GravitationNav").innerText = "Unit 1 - Gravitation and motion";
+                document.querySelector("#ParticlesNav").innerText = "Unit 2 - Particles and Waves";
+                document.querySelector("#ElectroNav").innerText = "Unit 3 - Electromagnetism";
                 document.querySelector("#img1").src = "Unit 1 Photos/Physics Motion Poster6.0.jpg";
                 document.querySelector("#img2").src = "Unit 1 Photos/Physics Tension and other things Poster2.0.jpg";
                 document.querySelector("#img3").src = "Unit 1 Photos/Explosions-&-Impulse2.png";
@@ -327,13 +332,20 @@
                 }
             }
 
+            // Loads for nat 5
             else if (localStorage.getItem("storedVar") == "Waves"){
                 document.querySelector("#ElectroNav").classList.add("underline");
 
-
+                document.querySelector("#GravitationNav").innerText = "Unit 1 - Waves, Radiation and Properties of Matter";
+                document.querySelector("#ParticlesNav").innerText = "Unit 2 - Electricity";
+                document.querySelector("#ElectroNav").innerText = "Unit 3 - Dynamics and Space";
                 document.querySelector("#img1").src = '/Nat 5 Posters/Waves, Radiation & Properties of Matter/Waves.png';
                 document.querySelector("#info1").innerHTML = "Transvers and Longitudinal Waves and their properties";
                 
+                document.querySelector("#GravitationNav").classList.add("underline");
+                document.querySelector("#ParticlesNav").classList.remove("underline");
+                document.querySelector("#ElectroNav").classList.remove("underline");
+
                 for (let i = 7; i <= 8; i++){
                     document.querySelector(`#item${i}`).classList.add("hidden");
                 }
@@ -489,9 +501,9 @@
     <!-- <main id="blur" onclick="closeModal()"> -->
         <ul id="navWrapper">
             <img src="arrow.png" class="hidden arrow" id="arrow1" onclick="changeLeft()">
-            <li class="navBar" id="GravitationNav" onclick="changePage('#GravitationNav')">Unit 1 - Gravitation and motion</li>
-            <li class="navBar" id="ParticlesNav" onclick="changePage('#ParticlesNav')">Unit 2 - Particles and Waves</li>
-            <li class="navBar" id="ElectroNav" onclick="changePage('#ElectroNav')">Unit 3 - Electromagnetism</li>
+            <li class="navBar" id="GravitationNav" onclick="changePage('#GravitationNav')"></li>
+            <li class="navBar" id="ParticlesNav" onclick="changePage('#ParticlesNav')"></li>
+            <li class="navBar" id="ElectroNav" onclick="changePage('#ElectroNav')"></li>
             <img src="arrow.png" class="hidden arrow" onclick="changeRight()">
         </ul>
         <main id="notNav">

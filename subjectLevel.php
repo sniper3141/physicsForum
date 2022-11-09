@@ -151,7 +151,7 @@
     </div>
     <div id="div3" onmouseover="backgroundOn('Elec')" onmouseout="backgroundOff('Elec')" onclick="toUnits('AH')">
         <div id="overlay3"></div>
-        <h1 id="Elec">Advanced Higher<br><div id="center">Physisc<div></h1>
+        <h1 id="Elec">Advanced Higher<br><div id="center">Physics<div></h1>
     </div>
 </body>
 <script src="./javascript/subjectLevel.js" type="text/javascript"></script>
