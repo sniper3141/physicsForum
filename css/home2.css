@@ -14,8 +14,8 @@ body{
     z-index: -1;
 }
 #logo{
-    max-height: 60%;
-    max-width: 60%;
+    max-height: 90%;
+    max-width: 90%;
     width: auto;
     height: auto;
     position: absolute;
@@ -23,7 +23,8 @@ body{
     left: 27rem;
     margin: 0;
     padding: 0;
-    opacity: 0.2;
+    /* opacity: 0.2; */
+    mix-blend-mode:multiply;
 }
 
 #logoText1{

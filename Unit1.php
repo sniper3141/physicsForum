@@ -29,11 +29,14 @@
         #navWrapper{
             display: grid;
             /* justify-content: space-around; */
-            grid-template-columns: 33.3% 33.3% 33.3%;
+            grid-template-columns: 33.3% 33.3% 33.4%;
             align-items: center;
+            /* justify-content: center; */
             background-color: black;
             margin-bottom: 1rem;  
-            margin-top: 0;   
+            margin-top: 0; 
+            margin-left: 0;
+            padding-left: 0;  
             position: sticky;   
             top: 0; 
             z-index: 5;
@@ -42,7 +45,10 @@
             color: white;
             font-family: Arial, Helvetica, sans-serif;
             list-style-type: none;
-            padding: 1.5rem;
+            align-items: center;
+            justify-content: center;
+            /* padding: 1.5rem; */
+            height: 5rem;
             padding-right: 5rem;
             padding-left: 5rem;
             margin: 0;
@@ -273,6 +279,9 @@
             }
             else if (localStorage.getItem("storedVar") == "Particles"){
                 document.querySelector("#ParticlesNav").classList.add("underline");
+                document.querySelector("#GravitationNav").innerText = "Unit 1 - Gravitation and motion";
+                document.querySelector("#ParticlesNav").innerText = "Unit 2 - Particles and Waves";
+                document.querySelector("#ElectroNav").innerText = "Unit 3 - Electromagnetism";
                 document.querySelector("#img1").src = "Unit 2 Photos/Charges-in-E-Fields.png";
                 document.querySelector("#info1").innerHTML = "Charges in E-Fields and Work Done";
                 document.querySelector("#img2").src = "Unit 2 Photos/Electric-Fields.png";
@@ -314,7 +323,9 @@
             else if (localStorage.getItem("storedVar") == "Electro"){
                 document.querySelector("#ElectroNav").classList.add("underline");
 
-
+                document.querySelector("#GravitationNav").innerText = "Unit 1 - Gravitation and motion";
+                document.querySelector("#ParticlesNav").innerText = "Unit 2 - Particles and Waves";
+                document.querySelector("#ElectroNav").innerText = "Unit 3 - Electromagnetism";
                 document.querySelector("#img1").src = "Unit 3 Photos/Current-and-Voltage.png";
                 document.querySelector("#info1").innerHTML = "AC, DC current and Peak, R.M.S Voltage";
                 document.querySelector("#img2").src = "Unit 3 Photos/Internal-Resistance.png";

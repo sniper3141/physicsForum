@@ -4,16 +4,14 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/home.css">
+    <link rel="stylesheet" href="css/home2.css">
     <link rel="stylesheet" href="css/homeMediaQueries.css">
     <title>ESMS Physics Hub</title>
 </head>
 <body>
     <div class="mainWrapper">
         <div class="wrapper">
-            <img src="Logo.png" alt="logo" id="logo">
-            <h2 id="logoText1">hysics</h2>
-            <h2 id="logoText2">ome</h2>
+            <img src="Logo2.0.jpg" alt="logo" id="logo">
 
             <div id="navWrapper">
                 <ul id="navUl">
