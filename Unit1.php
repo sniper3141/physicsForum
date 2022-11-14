@@ -205,39 +205,61 @@
 
 
         function openModal(imageId){
-            const photoSrcArray = [
+            const HigherPhotoSrcArray = [
             ["Unit 1 Photos/Physics Motion Poster6.0.jpg", "Unit 1 Photos/Physics Tension and other things Poster2.0.jpg", "Unit 1 Photos/Explosions & Impulse.jpg", "Unit 1 Photos/Momentum Poster.jpg", "Unit 1 Photos/Projectiles & Gravity.jpg", "Unit 1 Photos/Special Relativity Poster 2.jpg", "Unit 1 Photos/Physics_poster_space.png", "Unit 1 Photos/The-Big-Bang-Theory.png"],
             ["Unit 2 Photos/Charges-in-E-Fields.png", "Unit 2 Photos/Electric-Fields.png", "Unit 2 Photos/Fundamental-Particles-Poster.png", "Unit 2 Photos/Interacting-Particles-Poster.png", "Unit 2 Photos/Irradiance-Poster.png", "Unit 2 Photos/Magnetic-fields-poster-(updated).png", "Unit 2 Photos/Nuclear-Physics-Poster.png", "Unit 2 Photos/Orders-of-magnitude-physics-poster.png", "Unit 2 Photos/Particle-accelerator-poster.png", "Unit 2 Photos/Refractive-Index-Poster.png", "Unit 2 Photos/Wave-Particle-Duality-Poster.png", "Unit 2 Photos/Spectra-Physics-Poster.png", "Unit 2 Photos/Total-Internal-Reflection-Poster.png", "Unit 2 Photos/Uncertainties-Physics-Poster.png", "Unit 2 Photos/Waves-&-Interference.png", "Unit 2 Photos/Work-function-Poster.png", "Unit 2 Photos/Youngs'-double-slit-experiment.png"],
             ["Unit 3 Photos/Current-and-Voltage.png", "Unit 3 Photos/Internal-Resistance.png", "Unit 3 Photos/Capacitors.png", "Unit 3 Photos/Capacitor-Graphs.png", "Unit 3 Photos/Semiconductors.png", "Unit 3 Photos/LEDs-and-Photodiodes.png"]
             ]
 
+            const Nat5PhotoSrcArray = [
+            ["Nat 5 Posters/Waves, Radiation & Properties of Matter/Waves.png", "/Nat 5 Posters/Waves, Radiation & Properties of Matter/Diffraction.png", "/Nat 5 Posters/Waves, Radiation & Properties of Matter/Sound.png", "/Nat 5 Posters/Waves, Radiation & Properties of Matter/Ultrasound.png", "/Nat 5 Posters/Waves, Radiation & Properties of Matter/Reflection-&-Refraction.png", "/Nat 5 Posters/Waves, Radiation & Properties of Matter/TIR-&-EM-Spectrum.png"]
+            ]
+
             document.getElementById("modal").style.display = "flex";
             document.querySelector("#overlay").classList.remove("hidden");
             
-            for (let i = 0; i <= 8; i++){
-                if (imageId == `img${i}` && document.querySelector("#GravitationNav").classList.contains("underline")){
-                    window.scrollTo({ top: 0, behavior: 'smooth' });
-                    document.getElementById("modalImage").src = photoSrcArray[0][i];
-                    document.getElementById("downloadLink").href = photoSrcArray[0][i];
-                    return
+            if (document.querySelector("#GravitationNav").classList.contains("underline") && document.querySelector("#GravitationNav").innerHTML == "Unit 1 - Gravitation and motion"){
+                for (let i = 0; i <= 8; i++){
+                    if (imageId == `img${i}`){
+                        window.scrollTo({ top: 0, behavior: 'smooth' });
+                        document.getElementById("modalImage").src = HigherPhotoSrcArray[0][i];
+                        document.getElementById("downloadLink").href = HigherPhotoSrcArray[0][i];
+                        return
+                    }
                 }
             }
-            for (let i = 0; i <= 16; i++){
-                if (imageId == `img${i}` && document.querySelector("#ParticlesNav").classList.contains("underline")){
-                    window.scrollTo({ top: 0, behavior: 'smooth' });
-                    document.getElementById("modalImage").src = photoSrcArray[1][i];
-                    document.getElementById("downloadLink").href = photoSrcArray[1][i];
-                    return
+            else if (document.querySelector("#ParticlesNav").classList.contains("underline") && document.querySelector("#ParticlesNav").innerHTML ==  "Unit 2 - Particles and Waves"){
+                for (let i = 0; i <= 16; i++){
+                    if (imageId == `img${i}`){
+                        window.scrollTo({ top: 0, behavior: 'smooth' });
+                        document.getElementById("modalImage").src = HigherPhotoSrcArray[1][i];
+                        document.getElementById("downloadLink").href = HigherPhotoSrcArray[1][i];
+                        return
+                    }
                 }
             }
-            for (let i = 0; i <= 6; i++){
-                if (imageId == `img${i}` && document.querySelector("#ElectroNav").classList.contains("underline")){
-                    window.scrollTo({ top: 0, behavior: 'smooth' });
-                    document.getElementById("modalImage").src = photoSrcArray[2][i];
-                    document.getElementById("downloadLink").href = photoSrcArray[2][i];
-                    return
+            else if (document.querySelector("#ElectroNav").classList.contains("underline") && document.querySelector("#ElectroNav").innerHTML ==  "Unit 3 - Electromagnetism"){
+                for (let i = 0; i <= 6; i++){
+                    if (imageId == `img${i}`){
+                        window.scrollTo({ top: 0, behavior: 'smooth' });
+                        document.getElementById("modalImage").src = HigherPhotoSrcArray[2][i];
+                        document.getElementById("downloadLink").href = HigherPhotoSrcArray[2][i];
+                        return
+                    }
                 }
             }
+
+            else if (document.querySelector("#GravitationNav").innerHTML == "Unit 1 - Waves, Radiation and Properties of Matter" && document.querySelector("#GravitationNav").classList.contains("underline")){
+                for (let i = 0; i <= 6; i++){
+                    if (imageId == `img${i}`){
+                        window.scrollTo({ top: 0, behavior: 'smooth' });
+                        document.getElementById("modalImage").src = Nat5PhotoSrcArray[0][i];
+                        document.getElementById("downloadLink").href = Nat5PhotoSrcArray[0][i];
+                        return
+                    }
+                }
+            }
+            
             
         }
 
@@ -365,7 +387,7 @@
         }
 
         function changePage(pageToLoad){
-            if (pageToLoad == "#GravitationNav" && document.querySelector(pageToLoad).classList.contains("underline") == false){
+            if (pageToLoad == "#GravitationNav" && document.querySelector(pageToLoad).classList.contains("underline") == false && document.querySelector(pageToLoad).innerHTML == "Unit 1 - Gravitation and motion"){
                 document.querySelector("#notNav").classList.remove("hidden");
                 document.querySelector("#GravitationNav").classList.add("underline");
                 document.querySelector("#ParticlesNav").classList.remove("underline");
@@ -395,7 +417,7 @@
                     document.querySelector(`#item${i}`).classList.add("hidden");
                 }
             }
-            else if(pageToLoad == "#ParticlesNav" && document.querySelector(pageToLoad).classList.contains("underline") == false){
+            else if(pageToLoad == "#ParticlesNav" && document.querySelector(pageToLoad).classList.contains("underline") == false && document.querySelector(pageToLoad).innerHTML == "Unit 2 - Particles and Waves"){
                 document.querySelector("#notNav").classList.remove("hidden");
                 document.querySelector("#ParticlesNav").classList.add("underline");
                 document.querySelector("#GravitationNav").classList.remove("underline");
@@ -442,7 +464,7 @@
                     document.querySelector(`#item${i}`).classList.remove("hidden");
                 }
             }
-            else if(pageToLoad == "#ElectroNav" && document.querySelector(pageToLoad).classList.contains("underline") == false){
+            else if(pageToLoad == "#ElectroNav" && document.querySelector(pageToLoad).classList.contains("underline") == false && document.querySelector("#ElectroNav").innerHTML ==  "Unit 3 - Electromagnetism"){
                 document.querySelector("#ElectroNav").classList.add("underline");
                 document.querySelector("#GravitationNav").classList.remove("underline");
                 document.querySelector("#ParticlesNav").classList.remove("underline");
@@ -463,6 +485,53 @@
                 }
                 window.scrollTo({ top: 0});
             }
+
+            
+            else if(pageToLoad == "#GravitationNav" && document.querySelector(pageToLoad).classList.contains("underline") == false && document.querySelector("#GravitationNav").innerHTML ==  "Unit 1 - Waves, Radiation and Properties of Matter"){
+                document.querySelector("#GravitationNav").classList.add("underline");
+                document.querySelector("#ElectroNav").classList.remove("underline");
+                document.querySelector("#ParticlesNav").classList.remove("underline");
+                document.querySelector("#img1").src = "/Nat 5 Posters/Waves, Radiation & Properties of Matter/Waves.png";
+                document.querySelector("#info1").innerHTML = "Transvers and Longitudinal Waves and their properties";
+                document.querySelector("#img2").src = "/Nat 5 Posters/Waves, Radiation & Properties of Matter/Diffraction.png";
+                document.querySelector("#info2").innerHTML = "Diffraction and Diffraction Bending";
+                document.querySelector("#img3").src = "Unit 3 Photos/Capacitors.png";
+                document.querySelector("#info3").innerHTML = "Capacitors, Capacitance and Energy";
+                document.querySelector("#img4").src = "Unit 3 Photos/Capacitor-Graphs.png";
+                document.querySelector("#info4").innerHTML = "Charging and Discharging Capacitor Graphs - Voltage and Current";
+                document.querySelector("#img5").src = "Unit 3 Photos/Semiconductors.png";
+                document.querySelector("#info5").innerHTML = "Semiconductors, Band Structure, N and P type and n-p Junction";
+                document.querySelector("#img6").src = "Unit 3 Photos/LEDs-and-Photodiodes.png";
+                document.querySelector("#info6").innerHTML = "LEDs,Photodiodes and Photovoltaic Mode ";
+                for (let i = 7; i <= 17; i++){
+                    document.querySelector(`#item${i}`).classList.add("hidden");
+                }
+                window.scrollTo({ top: 0});
+            }
+
+
+            else if(pageToLoad == "#ParticlesNav" && document.querySelector(pageToLoad).classList.contains("underline") == false && document.querySelector("#ParticlesNav").innerHTML ==  "Unit 2 - Electricity"){
+                document.querySelector("#ParticlesNav").classList.add("underline");
+                document.querySelector("#ElectroNav").classList.remove("underline");
+                document.querySelector("#GravitationNav").classList.remove("underline");
+                document.querySelector("#img1").src = "/Nat 5 Posters/Waves, Radiation & Properties of Matter/Current-and-Charge-Nat-5.png";
+                document.querySelector("#info1").innerHTML = "AC and DC Current and Charge";
+                document.querySelector("#img2").src = "/Nat 5 Posters/Waves, Radiation & Properties of Matter/Diffraction.png";
+                document.querySelector("#info2").innerHTML = "Diffraction and Diffraction Bending";
+                document.querySelector("#img3").src = "Unit 3 Photos/Capacitors.png";
+                document.querySelector("#info3").innerHTML = "Capacitors, Capacitance and Energy";
+                document.querySelector("#img4").src = "Unit 3 Photos/Capacitor-Graphs.png";
+                document.querySelector("#info4").innerHTML = "Charging and Discharging Capacitor Graphs - Voltage and Current";
+                document.querySelector("#img5").src = "Unit 3 Photos/Semiconductors.png";
+                document.querySelector("#info5").innerHTML = "Semiconductors, Band Structure, N and P type and n-p Junction";
+                document.querySelector("#img6").src = "Unit 3 Photos/LEDs-and-Photodiodes.png";
+                document.querySelector("#info6").innerHTML = "LEDs,Photodiodes and Photovoltaic Mode ";
+                for (let i = 7; i <= 17; i++){
+                    document.querySelector(`#item${i}`).classList.add("hidden");
+                }
+                window.scrollTo({ top: 0});
+            }
+
         }
 
         function changeLeft(){

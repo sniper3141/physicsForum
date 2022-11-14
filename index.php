@@ -147,7 +147,7 @@
                 document.querySelector("#title1").innerText = "Waves, Radiation and Properties of Matter"
                 document.querySelector("#title2").innerText = "Electricity"
                 document.querySelector("#title3").innerText = "Dynamics and Space"
-                console.log(localStorage.getItem("storedUnit"));
+                // console.log(localStorage.getItem("storedUnit"));
                 
             }
             else if (localStorage.getItem("storedUnit") == "Higher"){
@@ -223,7 +223,6 @@
         }
         document.addEventListener("DOMContentLoaded", function(){
             if (localStorage.getItem("storedUnit") == "Nat5"){
-                console.log("hello1")
                 document.getElementById("div1").addEventListener("click", waves);
                 document.getElementById("div2").addEventListener("click", electricity);
                 document.getElementById("div3").addEventListener("click", dynamics);
