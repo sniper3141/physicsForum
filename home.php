@@ -6,32 +6,45 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/home2.css">
     <link rel="stylesheet" href="css/homeMediaQueries.css">
-    <title>ESMS Physics Hub</title>
+    <title>Home of ESMS Physics</title>
 </head>
 <body>
     <div class="mainWrapper">
         <div class="wrapper">
-            <img src="Logo2.0.jpg" alt="logo" id="logo">
+            <img src="Logo2.png" alt="logo" id="logo">
 
             <div id="navWrapper">
                 <ul id="navUl">
-                    <li id="postersLink"><a class="navli">Posters</a></li>
-                    <li id="postersLink2"><a class="navli">Forum</a></li>
+                    <li id="postersLink"><a class="navli" href="subjectLevel.php">Posters</a></li>
+                    <li id="postersLink2"><a class="navli" href="signup.php">Forum</a></li>
                     <li id="postersLink3"><a class="navli">Contact</a></li>
                 </ul>
             </div>
             <h1 id="mainTitle" class="scroll">Welcome</h1>
             <p id="subTitle">to the home of ESMS Physics</p>
-            <button id="posterBtn">Posters</button>
+            <a id="posterBtn" href="subjectLevel.php">Posters</a>
             <div id="arrowWrapper">
-                <img src="arrow5.png" alt="arrow for more" id="arrow">
+                <img src="arrow5.png" alt="arrow for more" id="arrow" onclick="scrollDown()">
             </div>
         </div>
         <div class="textWrapper">
-                <p style="font-size:3rem; color: black; font-family: 'arial'">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                <p style="font-size:3rem; color: black; font-family: 'arial'">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
         </div>
     </div>
     <script>
+
+        function scrollDown(){
+            window.scrollBy({    
+            left: 0, 
+            top: window.innerHeight,
+            behavior: "smooth"
+        
+        });
+            console.log("hello");
+        }
+
+
+
         var opacity = 1
         var lastScrollTop = 0;
         window.addEventListener('scroll', function(e) {
