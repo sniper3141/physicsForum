@@ -212,7 +212,8 @@
             ]
 
             const Nat5PhotoSrcArray = [
-            ["Nat 5 Posters/Waves, Radiation & Properties of Matter/Waves.png", "/Nat 5 Posters/Waves, Radiation & Properties of Matter/Diffraction.png", "/Nat 5 Posters/Waves, Radiation & Properties of Matter/Sound.png", "/Nat 5 Posters/Waves, Radiation & Properties of Matter/Ultrasound.png", "/Nat 5 Posters/Waves, Radiation & Properties of Matter/Reflection-&-Refraction.png", "/Nat 5 Posters/Waves, Radiation & Properties of Matter/TIR-&-EM-Spectrum.png"]
+            ["Nat 5 Posters/Waves, Radiation & Properties of Matter/Waves.png", "/Nat 5 Posters/Waves, Radiation & Properties of Matter/Diffraction.png", "/Nat 5 Posters/Waves, Radiation & Properties of Matter/Sound.png", "/Nat 5 Posters/Waves, Radiation & Properties of Matter/Ultrasound.png", "/Nat 5 Posters/Waves, Radiation & Properties of Matter/Reflection-&-Refraction.png", "/Nat 5 Posters/Waves, Radiation & Properties of Matter/TIR-&-EM-Spectrum.png"],
+            ["Nat 5 Posters/Waves, Radiation & Properties of Matter/Current-and-Charge-Nat-5.png", "Nat 5 Posters/Waves, Radiation & Properties of Matter/Curcuit-Symbols.png"]
             ]
 
             document.getElementById("modal").style.display = "flex";
@@ -255,6 +256,17 @@
                         window.scrollTo({ top: 0, behavior: 'smooth' });
                         document.getElementById("modalImage").src = Nat5PhotoSrcArray[0][i];
                         document.getElementById("downloadLink").href = Nat5PhotoSrcArray[0][i];
+                        return
+                    }
+                }
+            }
+
+            else if (document.querySelector("#ParticlesNav").innerHTML == "Unit 2 - Electricity" && document.querySelector("#ParticlesNav").classList.contains("underline")){
+                for (let i = 0; i <= 2; i++){
+                    if (imageId == `img${i}`){
+                        window.scrollTo({ top: 0, behavior: 'smooth' });
+                        document.getElementById("modalImage").src = Nat5PhotoSrcArray[1][i];
+                        document.getElementById("downloadLink").href = Nat5PhotoSrcArray[1][i];
                         return
                     }
                 }
@@ -374,7 +386,19 @@
                 document.querySelector("#ElectroNav").innerText = "Unit 3 - Dynamics and Space";
                 document.querySelector("#img1").src = '/Nat 5 Posters/Waves, Radiation & Properties of Matter/Waves.png';
                 document.querySelector("#info1").innerHTML = "Transvers and Longitudinal Waves and their properties";
+                document.querySelector("#img2").src = '/Nat 5 Posters/Waves, Radiation & Properties of Matter/Diffraction.png';
+                document.querySelector("#info2").innerHTML = "Diffraction and Diffraction Bending";
+                document.querySelector("#img3").src = '/Nat 5 Posters/Waves, Radiation & Properties of Matter/Sound.png';
+                document.querySelector("#info3").innerHTML = "Measuring the Speed of Sound";
+                document.querySelector("#img4").src = '/Nat 5 Posters/Waves, Radiation & Properties of Matter/Ultrasound.png';
+                document.querySelector("#info4").innerHTML = "Ultrasound, Frequency and Amplitude";
+                document.querySelector("#img5").src = '/Nat 5 Posters/Waves, Radiation & Properties of Matter/Reflection-&-Refraction.png';
+                document.querySelector("#info5").innerHTML = "Reflection, Refraction and Curved Reflectors";
+                document.querySelector("#img6").src = '/Nat 5 Posters/Waves, Radiation & Properties of Matter/TIR-&-EM-Spectrum.png';
+                document.querySelector("#info6").innerHTML = "Total Internal Reflection and The Electromagnetic Spectrum";
                 
+
+
                 document.querySelector("#GravitationNav").classList.add("underline");
                 document.querySelector("#ParticlesNav").classList.remove("underline");
                 document.querySelector("#ElectroNav").classList.remove("underline");
@@ -382,6 +406,61 @@
                 for (let i = 7; i <= 8; i++){
                     document.querySelector(`#item${i}`).classList.add("hidden");
                 }
+            }
+
+            else if (localStorage.getItem("storedVar") == "Electricity"){
+                document.querySelector("#ElectroNav").classList.add("underline");
+
+                document.querySelector("#GravitationNav").innerText = "Unit 1 - Waves, Radiation and Properties of Matter";
+                document.querySelector("#ParticlesNav").innerText = "Unit 2 - Electricity";
+                document.querySelector("#ElectroNav").innerText = "Unit 3 - Dynamics and Space";
+                document.querySelector("#img1").src = '/Nat 5 Posters/Waves, Radiation & Properties of Matter/Current-and-Charge-Nat-5.png';
+                document.querySelector("#info1").innerHTML = "AC and DC Current and Charge";
+                document.querySelector("#img2").src = '/Nat 5 Posters/Waves, Radiation & Properties of Matter/Curcuit-Symbols.png';
+                document.querySelector("#info2").innerHTML = "Common Curcuit Symbols and Names";
+                document.querySelector("#img3").src = '';
+                document.querySelector("#info3").innerHTML = "";
+                document.querySelector("#img4").src = '';
+                document.querySelector("#info4").innerHTML = "";
+                document.querySelector("#img5").src = '';
+                document.querySelector("#info5").innerHTML = "";
+                document.querySelector("#img6").src = '';
+                document.querySelector("#info6").innerHTML = "";
+                
+
+
+                document.querySelector("#ParticlesNav").classList.add("underline");
+                document.querySelector("#GravitationNav").classList.remove("underline");
+                document.querySelector("#ElectroNav").classList.remove("underline");
+
+                for (let i = 7; i <= 8; i++){
+                    document.querySelector(`#item${i}`).classList.add("hidden");
+                }
+            }
+
+            else if(localStorage.getItem("storedVar") == "Dynamics"){
+                document.querySelector("#ElectroNav").classList.add("underline");
+                document.querySelector("#ParticlesNav").classList.remove("underline");
+                document.querySelector("#GravitationNav").classList.remove("underline");
+                document.querySelector("#GravitationNav").innerText = "Unit 1 - Waves, Radiation and Properties of Matter";
+                document.querySelector("#ParticlesNav").innerText = "Unit 2 - Electricity";
+                document.querySelector("#ElectroNav").innerText = "Unit 3 - Dynamics and Space";
+                document.querySelector("#img1").src = '';
+                document.querySelector("#info1").innerHTML = "";
+                document.querySelector("#img2").src = '';
+                document.querySelector("#info2").innerHTML = "";
+                document.querySelector("#img3").src = '';
+                document.querySelector("#info3").innerHTML = "";
+                document.querySelector("#img4").src = '';
+                document.querySelector("#info4").innerHTML = "";
+                document.querySelector("#img5").src = '';
+                document.querySelector("#info5").innerHTML = "";
+                document.querySelector("#img6").src = '';
+                document.querySelector("#info6").innerHTML = "";
+                for (let i = 7; i <= 17; i++){
+                    document.querySelector(`#item${i}`).classList.add("hidden");
+                }
+                window.scrollTo({ top: 0});
             }
 
         }
@@ -491,18 +570,22 @@
                 document.querySelector("#GravitationNav").classList.add("underline");
                 document.querySelector("#ElectroNav").classList.remove("underline");
                 document.querySelector("#ParticlesNav").classList.remove("underline");
-                document.querySelector("#img1").src = "/Nat 5 Posters/Waves, Radiation & Properties of Matter/Waves.png";
+                document.querySelector("#GravitationNav").innerText = "Unit 1 - Waves, Radiation and Properties of Matter";
+                document.querySelector("#ParticlesNav").innerText = "Unit 2 - Electricity";
+                document.querySelector("#ElectroNav").innerText = "Unit 3 - Dynamics and Space";
+                document.querySelector("#img1").src = '/Nat 5 Posters/Waves, Radiation & Properties of Matter/Waves.png';
                 document.querySelector("#info1").innerHTML = "Transvers and Longitudinal Waves and their properties";
-                document.querySelector("#img2").src = "/Nat 5 Posters/Waves, Radiation & Properties of Matter/Diffraction.png";
+                document.querySelector("#img2").src = '/Nat 5 Posters/Waves, Radiation & Properties of Matter/Diffraction.png';
                 document.querySelector("#info2").innerHTML = "Diffraction and Diffraction Bending";
-                document.querySelector("#img3").src = "Unit 3 Photos/Capacitors.png";
-                document.querySelector("#info3").innerHTML = "Capacitors, Capacitance and Energy";
-                document.querySelector("#img4").src = "Unit 3 Photos/Capacitor-Graphs.png";
-                document.querySelector("#info4").innerHTML = "Charging and Discharging Capacitor Graphs - Voltage and Current";
-                document.querySelector("#img5").src = "Unit 3 Photos/Semiconductors.png";
-                document.querySelector("#info5").innerHTML = "Semiconductors, Band Structure, N and P type and n-p Junction";
-                document.querySelector("#img6").src = "Unit 3 Photos/LEDs-and-Photodiodes.png";
-                document.querySelector("#info6").innerHTML = "LEDs,Photodiodes and Photovoltaic Mode ";
+                document.querySelector("#img3").src = '/Nat 5 Posters/Waves, Radiation & Properties of Matter/Sound.png';
+                document.querySelector("#info3").innerHTML = "Measuring the Speed of Sound";
+                document.querySelector("#img4").src = '/Nat 5 Posters/Waves, Radiation & Properties of Matter/Ultrasound.png';
+                document.querySelector("#info4").innerHTML = "Ultrasound, Frequency and Amplitude";
+                document.querySelector("#img5").src = '/Nat 5 Posters/Waves, Radiation & Properties of Matter/Reflection-&-Refraction.png';
+                document.querySelector("#info5").innerHTML = "Reflection, Refraction and Curved Reflectors";
+                document.querySelector("#img6").src = '/Nat 5 Posters/Waves, Radiation & Properties of Matter/TIR-&-EM-Spectrum.png';
+                document.querySelector("#info6").innerHTML = "Total Internal Reflection and The Electromagnetic Spectrum";
+                
                 for (let i = 7; i <= 17; i++){
                     document.querySelector(`#item${i}`).classList.add("hidden");
                 }
@@ -514,24 +597,52 @@
                 document.querySelector("#ParticlesNav").classList.add("underline");
                 document.querySelector("#ElectroNav").classList.remove("underline");
                 document.querySelector("#GravitationNav").classList.remove("underline");
-                document.querySelector("#img1").src = "/Nat 5 Posters/Waves, Radiation & Properties of Matter/Current-and-Charge-Nat-5.png";
+                document.querySelector("#GravitationNav").innerText = "Unit 1 - Waves, Radiation and Properties of Matter";
+                document.querySelector("#ParticlesNav").innerText = "Unit 2 - Electricity";
+                document.querySelector("#ElectroNav").innerText = "Unit 3 - Dynamics and Space";
+                document.querySelector("#img1").src = '/Nat 5 Posters/Waves, Radiation & Properties of Matter/Current-and-Charge-Nat-5.png';
                 document.querySelector("#info1").innerHTML = "AC and DC Current and Charge";
-                document.querySelector("#img2").src = "/Nat 5 Posters/Waves, Radiation & Properties of Matter/Diffraction.png";
-                document.querySelector("#info2").innerHTML = "Diffraction and Diffraction Bending";
-                document.querySelector("#img3").src = "Unit 3 Photos/Capacitors.png";
-                document.querySelector("#info3").innerHTML = "Capacitors, Capacitance and Energy";
-                document.querySelector("#img4").src = "Unit 3 Photos/Capacitor-Graphs.png";
-                document.querySelector("#info4").innerHTML = "Charging and Discharging Capacitor Graphs - Voltage and Current";
-                document.querySelector("#img5").src = "Unit 3 Photos/Semiconductors.png";
-                document.querySelector("#info5").innerHTML = "Semiconductors, Band Structure, N and P type and n-p Junction";
-                document.querySelector("#img6").src = "Unit 3 Photos/LEDs-and-Photodiodes.png";
-                document.querySelector("#info6").innerHTML = "LEDs,Photodiodes and Photovoltaic Mode ";
+                document.querySelector("#img2").src = '/Nat 5 Posters/Waves, Radiation & Properties of Matter/Curcuit-Symbols.png';
+                document.querySelector("#info2").innerHTML = "Common Curcuit Symbols and Names";
+                document.querySelector("#img3").src = '';
+                document.querySelector("#info3").innerHTML = "";
+                document.querySelector("#img4").src = '';
+                document.querySelector("#info4").innerHTML = "";
+                document.querySelector("#img5").src = '';
+                document.querySelector("#info5").innerHTML = "";
+                document.querySelector("#img6").src = '';
+                document.querySelector("#info6").innerHTML = "";
                 for (let i = 7; i <= 17; i++){
                     document.querySelector(`#item${i}`).classList.add("hidden");
                 }
                 window.scrollTo({ top: 0});
             }
 
+
+            else if(pageToLoad == "#ElectroNav" && document.querySelector(pageToLoad).classList.contains("underline") == false && document.querySelector("#ElectroNav").innerHTML ==  "Unit 3 - Dynamics and Space"){
+                document.querySelector("#ElectroNav").classList.add("underline");
+                document.querySelector("#ParticlesNav").classList.remove("underline");
+                document.querySelector("#GravitationNav").classList.remove("underline");
+                document.querySelector("#GravitationNav").innerText = "Unit 1 - Waves, Radiation and Properties of Matter";
+                document.querySelector("#ParticlesNav").innerText = "Unit 2 - Electricity";
+                document.querySelector("#ElectroNav").innerText = "Unit 3 - Dynamics and Space";
+                document.querySelector("#img1").src = '';
+                document.querySelector("#info1").innerHTML = "";
+                document.querySelector("#img2").src = '';
+                document.querySelector("#info2").innerHTML = "";
+                document.querySelector("#img3").src = '';
+                document.querySelector("#info3").innerHTML = "";
+                document.querySelector("#img4").src = '';
+                document.querySelector("#info4").innerHTML = "";
+                document.querySelector("#img5").src = '';
+                document.querySelector("#info5").innerHTML = "";
+                document.querySelector("#img6").src = '';
+                document.querySelector("#info6").innerHTML = "";
+                for (let i = 7; i <= 17; i++){
+                    document.querySelector(`#item${i}`).classList.add("hidden");
+                }
+                window.scrollTo({ top: 0});
+            }
         }
 
         function changeLeft(){
