@@ -206,7 +206,7 @@
 
         function openModal(imageId){
             const HigherPhotoSrcArray = [
-            ["Unit 1 Photos/Physics Motion Poster6.0.jpg", "Unit 1 Photos/Physics Tension and other things Poster2.0.jpg", "Unit 1 Photos/Explosions & Impulse.jpg", "Unit 1 Photos/Momentum Poster.jpg", "Unit 1 Photos/Projectiles & Gravity.jpg", "Unit 1 Photos/Special Relativity Poster 2.jpg", "Unit 1 Photos/Physics_poster_space.png", "Unit 1 Photos/The-Big-Bang-Theory.png"],
+            ["Unit 1 Photos/Physics Motion Poster6.0.png", "Unit 1 Photos/Physics Tension and other things Poster2.0.jpg", "Unit 1 Photos/Explosions & Impulse.jpg", "Unit 1 Photos/Momentum Poster.jpg", "Unit 1 Photos/Projectiles & Gravity.jpg", "Unit 1 Photos/Special Relativity Poster 2.jpg", "Unit 1 Photos/Physics_poster_space.png", "Unit 1 Photos/The-Big-Bang-Theory.png"],
             ["Unit 2 Photos/Charges-in-E-Fields.png", "Unit 2 Photos/Electric-Fields.png", "Unit 2 Photos/Fundamental-Particles-Poster.png", "Unit 2 Photos/Interacting-Particles-Poster.png", "Unit 2 Photos/Irradiance-Poster.png", "Unit 2 Photos/Magnetic-fields-poster-(updated).png", "Unit 2 Photos/Nuclear-Physics-Poster.png", "Unit 2 Photos/Orders-of-magnitude-physics-poster.png", "Unit 2 Photos/Particle-accelerator-poster.png", "Unit 2 Photos/Refractive-Index-Poster.png", "Unit 2 Photos/Wave-Particle-Duality-Poster.png", "Unit 2 Photos/Spectra-Physics-Poster.png", "Unit 2 Photos/Total-Internal-Reflection-Poster.png", "Unit 2 Photos/Uncertainties-Physics-Poster.png", "Unit 2 Photos/Waves-&-Interference.png", "Unit 2 Photos/Work-function-Poster.png", "Unit 2 Photos/Youngs'-double-slit-experiment.png"],
             ["Unit 3 Photos/Current-and-Voltage.png", "Unit 3 Photos/Internal-Resistance.png", "Unit 3 Photos/Capacitors.png", "Unit 3 Photos/Capacitor-Graphs.png", "Unit 3 Photos/Semiconductors.png", "Unit 3 Photos/LEDs-and-Photodiodes.png"]
             ]
@@ -294,7 +294,7 @@
                 document.querySelector("#GravitationNav").innerText = "Unit 1 - Gravitation and motion";
                 document.querySelector("#ParticlesNav").innerText = "Unit 2 - Particles and Waves";
                 document.querySelector("#ElectroNav").innerText = "Unit 3 - Electromagnetism";
-                document.querySelector("#img1").src = "Unit 1 Photos/Physics Motion Poster6.0.jpg";
+                document.querySelector("#img1").src = "Unit 1 Photos/Physics Motion Poster6.0.png";
                 document.querySelector("#img2").src = "Unit 1 Photos/Physics Tension and other things Poster2.0.jpg";
                 document.querySelector("#img3").src = "Unit 1 Photos/Explosions-&-Impulse2.png";
                 document.querySelector("#img4").src = "Unit 1 Photos/Momentum Poster.jpg";
@@ -472,7 +472,7 @@
                 document.querySelector("#ParticlesNav").classList.remove("underline");
                 document.querySelector("#ElectroNav").classList.remove("underline");
 
-                document.querySelector("#img1").src = "Unit 1 Photos/Physics Motion Poster6.0.jpg";
+                document.querySelector("#img1").src = "Unit 1 Photos/Physics Motion Poster6.0.png";
                 document.querySelector("#img2").src = "Unit 1 Photos/Physics Tension and other things Poster2.0.jpg";
                 document.querySelector("#img3").src = "Unit 1 Photos/Explosions-&-Impulse2.png";
                 document.querySelector("#img4").src = "Unit 1 Photos/Momentum Poster.jpg";
