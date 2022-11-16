@@ -17,7 +17,7 @@
                 <ul id="navUl">
                     <li id="postersLink"><a class="navli" href="subjectLevel.php">Posters</a></li>
                     <li id="postersLink2"><a class="navli" href="signup.php">Forum</a></li>
-                    <li id="postersLink3"><a class="navli">Contact</a></li>
+                    <li id="postersLink3"><a class="navli" onclick="openContactForm()">Contact</a></li>
                 </ul>
             </div>
             <h1 id="mainTitle" class="scroll">Welcome</h1>
@@ -25,15 +25,17 @@
             <a id="posterBtn" href="subjectLevel.php">Posters</a>
             <div id="arrowWrapper">
                 <img src="arrow5.png" alt="arrow for more" id="arrow" onclick="scrollDown()">
-            </div>  
-            <section id="contactFormWapper">
+            </div>
+            <div id="contactOverlay1" onclick="closeContactForm()"></div>
+            <div id="contactOverlay2" onclick="closeContactForm()"></div>
+            <section id="contactFormWapper" style="display: none">
                 <div id="formInfo">
                     <h1 id="getInTouchTitle">Get in Touch</h1>
                     <p id="getInTouchInfo">Feel free to contact us if there is a problem with the website, have any cool ideas, or just for a chat.</p>
                     
                     <aside id="mailWrapper">
                         <div id="mailIcon"></div>
-                        <p>Email: fillerEmail@email.com</p>
+                        <p>Email: pupilportal@outlook.com</p>
                     </aside>
 
                     <aside id="mailWrapper">
@@ -52,16 +54,24 @@
                     </aside>
                 </div>
                 <div id="contactForm">
+                    <img src="close.png" alt="close button" id="closeBtn" onclick="closeContactForm()">
                     <h1 id="contactTitle">Contact</h1>
-                    <form>
+                    <form action="contactForm.php" method="POST">
                         <div id="formWrapper">
                             <span>First Name</span>
                             <span>Email Address</span>
-                            <input type="text" id="nameInput" value="Name">
-                            <input type="email" id="nameInput" value="Email">
+                            <input type="text" id="nameInput" name="name" placeholder="Name" required onfocus="removeValue('#nameInput')" onfocusout="addValue('Name', '#nameInput')">
+                            <input type="email" id="emailInput" name="mail" placeholder="Email" required onfocus="removeValue('#emailInput')" onfocusout="addValue('Email', '#emailInput')">
+                            
                         </div>
                         <span>Message</span>
-                        <textarea rows="13" cols="60"></textarea>
+                        <textarea rows="13" id="textArea" name="message" cols="60" required></textarea>
+                        <input type="submit" name="submit" id="contactSubmit" value="Send">
+                        <?php
+                            if (isset($_GET['mailSent'])){
+                                echo "<div id='contactConfirmation'>Your message has been sent!</div>";
+                            }
+                        ?>
                     </form>
                 </div>
             </section>
@@ -71,7 +81,6 @@
         </div>
     </div>
     <script>
-
         function scrollDown(){
             window.scrollBy({    
             left: 0, 
@@ -79,7 +88,6 @@
             behavior: "smooth"
         
         });
-            console.log("hello");
         }
 
 
@@ -87,7 +95,7 @@
         var opacity = 1
         var lastScrollTop = 0;
         window.addEventListener('scroll', function(e) {
-            console.log(window.pageYOffset);
+            // console.log(window.pageYOffset);
             const target = document.querySelector(".scroll");
             var st = window.pageYOffset || document.documentElement.scrollTop;
             if (st > lastScrollTop && opacity){
@@ -155,4 +163,5 @@
         });
     </script>
 </body>
+<script src="javascript/home.js"></script>
 </html>
