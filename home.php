@@ -25,10 +25,49 @@
             <a id="posterBtn" href="subjectLevel.php">Posters</a>
             <div id="arrowWrapper">
                 <img src="arrow5.png" alt="arrow for more" id="arrow" onclick="scrollDown()">
-            </div>
+            </div>  
+            <section id="contactFormWapper">
+                <div id="formInfo">
+                    <h1 id="getInTouchTitle">Get in Touch</h1>
+                    <p id="getInTouchInfo">Feel free to contact us if there is a problem with the website, have any cool ideas, or just for a chat.</p>
+                    
+                    <aside id="mailWrapper">
+                        <div id="mailIcon"></div>
+                        <p>Email: fillerEmail@email.com</p>
+                    </aside>
+
+                    <aside id="mailWrapper">
+                        <div id="mailIcon"></div>
+                        <p>Offer an improvement</p>
+                    </aside>
+
+                    <aside id="mailWrapper">
+                        <div id="mailIcon"></div>
+                        <p>Report a problem</p>
+                    </aside>
+
+                    <aside id="mailWrapper">
+                        <div id="mailIcon"></div>
+                        <p>Have a chat</p>
+                    </aside>
+                </div>
+                <div id="contactForm">
+                    <h1 id="contactTitle">Contact</h1>
+                    <form>
+                        <div id="formWrapper">
+                            <span>First Name</span>
+                            <span>Email Address</span>
+                            <input type="text" id="nameInput" value="Name">
+                            <input type="email" id="nameInput" value="Email">
+                        </div>
+                        <span>Message</span>
+                        <textarea rows="13" cols="60"></textarea>
+                    </form>
+                </div>
+            </section>
         </div>
         <div class="textWrapper">
-                <p style="font-size:3rem; color: black; font-family: 'arial'">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            <p style="font-size:3rem; color: black; font-family: 'arial'">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
         </div>
     </div>
     <script>
@@ -48,7 +87,7 @@
         var opacity = 1
         var lastScrollTop = 0;
         window.addEventListener('scroll', function(e) {
-            
+            console.log(window.pageYOffset);
             const target = document.querySelector(".scroll");
             var st = window.pageYOffset || document.documentElement.scrollTop;
             if (st > lastScrollTop && opacity){
@@ -91,6 +130,18 @@
             var postRate3 = scrolled * -0.1;
             postersTarget3.style.transform = "translate3d(0px, "+postRate3+"px, 0px)";
 
+            if (window.pageYOffset < 100){
+                document.querySelector("#arrow").style.display = "block"
+                const arrowTarget = document.querySelector("#arrow");
+                var arrowRate = scrolled * 0.7;
+                arrowTarget.style.transform = "translate3d(0px, "+arrowRate+"px, 0px)";
+            }
+            else{
+                document.querySelector("#arrow").style.display = "none"
+            }
+            
+
+            
             // const logoTarget = document.querySelector("#logo");
             // const logoTarget1 = document.querySelector("#logoText1");
             // const logoTarget2 = document.querySelector("#logoText2");
