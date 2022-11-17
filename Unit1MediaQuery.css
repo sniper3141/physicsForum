@@ -568,3 +568,22 @@
     }
 }
 
+
+@media only screen and (max-width: 1830px) {
+    #modal{
+        z-index: 4;
+        position: absolute;
+        left: 17.2% !important;
+        top: 11% !important;
+        display: none;
+        padding: 1%;
+        padding-bottom: 0.7%;
+        background-color: #f1f1f1;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        box-shadow: 0rem 0rem 0.8rem 0.2rem black;
+    }
+}
+
+

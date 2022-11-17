@@ -64,7 +64,7 @@
                             <input type="email" id="emailInput" name="mail" placeholder="Email" required onfocus="removeValue('#emailInput')" onfocusout="addValue('Email', '#emailInput')">
                             
                         </div>
-                        <span>Message</span>
+                        <span id="message">Message</span>
                         <textarea rows="13" id="textArea" name="message" cols="60" required></textarea>
                         <input type="submit" name="submit" id="contactSubmit" value="Send">
                         <?php

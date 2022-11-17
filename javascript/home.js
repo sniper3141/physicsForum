@@ -12,10 +12,10 @@ function openContactForm(){
 function closeContactForm(){
     var overlay1 = document.querySelector("#contactOverlay1")
     var overlay2 = document.querySelector("#contactOverlay2")
-    overlay1.style.top = "-100%";
+    overlay1.style.top = "-101%";
     // overlay1.style.opacity = "0";
     // overlay2.style.opacity = "0";
-    overlay2.style.bottom = "-100%";
+    overlay2.style.bottom = "-101%";
     document.querySelector("#contactFormWapper").style.display = "none";
     document.querySelector("body").style.overflowY = "scroll";
 }

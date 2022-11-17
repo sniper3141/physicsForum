@@ -58,4 +58,22 @@
         font-size: 1.6rem;
     }
 
+
+}
+
+@media only screen and (max-width: 1825px) {
+
+    #message{
+        padding-top: 4% !important;
+    }
+    #mailWrapper{
+        font-size: 1.1rem;
+    }
+    #contactOverlay2{
+        bottom: -101%;
+    }
+
+    #contactOverlay1{
+        top: -101%;
+    }
 }

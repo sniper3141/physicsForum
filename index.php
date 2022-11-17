@@ -163,7 +163,7 @@
                 document.querySelector("#div2").style.backgroundColor = "#f1f1f1";
                 document.querySelector("#div3").style.backgroundColor = "#f1f1f1";
                 // document.querySelector("#title1").innerText = "Gravitation and Motion"
-                document.querySelector("#title2").innerText = "Comming Soon";
+                document.querySelector("#title2").innerText = "Coming Soon";
                 // document.querySelector("#title3").innerText = "Electromagnetism"
             }
         }
