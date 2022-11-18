@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/home2.css">
     <link rel="stylesheet" href="css/homeMediaQueries.css">
+    <link href="https://fonts.cdnfonts.com/css/azo-sans" rel="stylesheet">
     <title>Home of ESMS Physics</title>
 </head>
 <body>
@@ -76,11 +77,57 @@
                 </div>
             </section>
         </div>
-        <div class="textWrapper">
-            <p style="font-size:3rem; color: black; font-family: 'arial'">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        <div id="textWrapperMain">
+            <div class="textWrapper">
+                <h1 id="resource">This is a resource for<br>school <div class="red">students</div></h1>
+            </div>
+            <div id="textWrapper2">
+                <h1 id="madeBy">Made by Students</h1>
+            </div>
+            <div id="scroll"></div>
+            <div id="horizontalScroll">
+                <div id="textWrapper3">
+                    <h1 id="studying">Are you sick of studying <div class="red">alone</div><br> in your room?</h1>
+                </div>
+                <div id="textWrapper4">
+                    <h1 id="community">If so, join a <div class="red">community</div> of<br> likeminded people</h1>
+                </div>
+            </div>
         </div>
     </div>
     <script>
+        const container = document.querySelector("#horizontalScroll");
+        let scrollLine = document.querySelector("#scroll");
+        var counter = 1;
+        container.addEventListener("wheel", (e) => {
+            if (window.pageYOffset == 2883){
+                if (e.deltaY == 100 && counter < 13){
+                    document.querySelector("body").style.overflowY = "hidden";
+                    counter += 1;
+                }
+                if (scrollLine.style.width == "0px" && e.deltaY != 100){
+                    document.querySelector("body").style.overflowY = "auto";
+                    window.scrollBy(0, 50);
+                    return;
+                }
+
+                if (e.deltaY == -100){
+                    counter -=1;
+                }
+
+
+
+
+                e.preventDefault();
+                container.scrollLeft += e.deltaY;
+                scrollLine.style.width = container.scrollLeft + "px";
+            }
+        })
+
+
+
+
+
         function scrollDown(){
             window.scrollBy({    
             left: 0, 
@@ -94,6 +141,7 @@
 
         var opacity = 1
         var lastScrollTop = 0;
+        var textOpacity = 0.1
         window.addEventListener('scroll', function(e) {
             // console.log(window.pageYOffset);
             const target = document.querySelector(".scroll");
@@ -109,7 +157,7 @@
             }
 
             var scrolled = window.pageYOffset;
-            lastScrollTop = st <= 0 ? 0 : st;
+            
             var rate = -(scrolled * 0.15);
             target.style.transform = "translate3d(0px, "+rate+"px, 0px)";
             target.style.opacity = opacity;
@@ -149,7 +197,23 @@
             }
             
 
+            if (window.pageYOffset > 500){
+                const resourceTarget = document.querySelector("#resource");
+                if (st > lastScrollTop && textOpacity <= 1.00000000001){
+                    textOpacity = textOpacity / 0.95;
+                }
+                else if (st <= lastScrollTop && pageYOffset < 961){
+                    textOpacity = textOpacity * 0.98;
+                }
+                if (window.pageYOffset > 961){
+                    textOpacity = 1;
+                }
+                
+                resourceTarget.style.opacity = textOpacity;
+            }
             
+
+            lastScrollTop = st <= 0 ? 0 : st;
             // const logoTarget = document.querySelector("#logo");
             // const logoTarget1 = document.querySelector("#logoText1");
             // const logoTarget2 = document.querySelector("#logoText2");

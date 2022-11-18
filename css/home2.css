@@ -1,3 +1,7 @@
+html{
+    scroll-behavior: smooth;
+}
+
 body{
     /* background-color: hotpink; */
     overflow-x: hidden;
@@ -71,7 +75,7 @@ body{
     position: absolute;
     top: 28.3rem;
     left: 26.5rem;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Azo Sans', sans-serif;
     font-weight: 400;
     font-size: 2.063rem;
     color: white;
@@ -132,7 +136,13 @@ body{
 
 .textWrapper{
     position: absolute;
-    top: 150vh;
+    /* text-align: center; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 100vh;
+    height: 100vh;
+    width: 100vw;
 }
 
 #contactFormWapper{
@@ -303,4 +313,87 @@ textarea:focus{
     width: auto;
     left: 89%;
     cursor: pointer;
+}
+
+
+#resource{
+    text-align: center;
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 4.5rem;
+    font-weight: 700;
+    opacity: 0;
+}
+
+.red{
+    color: #F1513F;
+    display: inline;
+}
+#textWrapper2{
+    top: 200vh;
+}
+/* #textWrapper3, #textWrapper4{
+    top: 300vh;
+    position: absolute;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+} */
+
+
+#textWrapper2{
+    position: absolute;
+    /* text-align: center; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+}
+
+#madeBy, #studying{
+    text-align: center;
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 4.5rem;
+    font-weight: 700;
+}
+
+#horizontalScroll{
+    position: absolute;
+    top: 300vh;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: hidden !important;
+    -webkit-overflow-scrolling: touch;
+}
+#community{
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 4.5rem;
+    font-weight: 700;
+}
+
+#textWrapper3, #textWrapper4{
+    flex: 0 0 auto;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-width: 100%;
+}
+
+#scroll{
+    position: absolute;
+    height: 0.3rem;
+    width: 0;
+    background-color: black;
+    top: 399.5vh;
+    left: 0;
 }
