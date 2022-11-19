@@ -1,6 +1,6 @@
-html{
+/* html{
     scroll-behavior: smooth;
-}
+} */
 
 body{
     /* background-color: hotpink; */
@@ -371,6 +371,7 @@ textarea:focus{
     flex-wrap: nowrap;
     overflow-x: hidden !important;
     -webkit-overflow-scrolling: touch;
+    scroll-snap-stop: always;
 }
 #community{
     text-align: center;
@@ -397,3 +398,15 @@ textarea:focus{
     top: 399.5vh;
     left: 0;
 }
+
+#textWrapper5{
+    position: absolute;
+    /* text-align: center; */
+    top: 400vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+}
+

@@ -77,7 +77,8 @@
                 </div>
             </section>
         </div>
-        <div id="textWrapperMain">
+    </div>
+    <div id="textWrapperMain">
             <div class="textWrapper">
                 <h1 id="resource">This is a resource for<br>school <div class="red">students</div></h1>
             </div>
@@ -93,33 +94,81 @@
                     <h1 id="community">If so, join a <div class="red">community</div> of<br> likeminded people</h1>
                 </div>
             </div>
+            <div id="textWrapper5" style="display: none">
+                <h1>With question forums...</h1>
+            </div>
+
         </div>
-    </div>
     <script>
         const container = document.querySelector("#horizontalScroll");
         let scrollLine = document.querySelector("#scroll");
         var counter = 1;
         container.addEventListener("wheel", (e) => {
             if (window.pageYOffset == 2883){
+                scrollLine.style.display = "flex";
+                scrollLine.style.top = "399.5vh";
                 if (e.deltaY == 100 && counter < 13){
                     document.querySelector("body").style.overflowY = "hidden";
                     counter += 1;
                 }
                 if (scrollLine.style.width == "0px" && e.deltaY != 100){
                     document.querySelector("body").style.overflowY = "auto";
-                    window.scrollBy(0, 50);
                     return;
                 }
+                else if (scrollLine.style.width == `${window.innerWidth}px`){
+                    const body = document.querySelector("body")
+                    body.style.overflowY = "auto";
+                    document.querySelector(".mainWrapper").style.display = "none";
+                    document.querySelector(".textWrapper").style.display = "none";
+                    document.querySelector("#textWrapper2").style.display = "none";
+                    document.querySelector("#horizontalScroll").style.top = "0";
+                    document.querySelector("#textWrapper5").style.top = "100vh";
+                    scrollLine.style.top = "99.5vh";
+                    document.querySelector("body").style.overflowY = "auto";
+                    document.querySelector("#horizontalScroll").style.display = "flex";
+                                     
+                    window.scrollTo(0, 0);
+                    return;
+                }
+                
 
                 if (e.deltaY == -100){
                     counter -=1;
                 }
-
-
-
+                else if (e.deltaY == 100){
+                    document.querySelector("body").style.overflowY = "hidden";
+                }
+                
 
                 e.preventDefault();
-                container.scrollLeft += e.deltaY;
+                container.scrollLeft += e.deltaY / 3 ;
+                scrollLine.style.width = container.scrollLeft + "px";
+            }
+            if (window.pageYOffset == 0 && document.querySelector(".mainWrapper").style.display == "none"){
+                document.querySelector("#textWrapper5").style.display = "flex"; 
+                document.querySelector("body").style.overflowY = "hidden";
+                if (scrollLine.style.width == `${window.innerWidth}px` && e.deltaY == -100){
+                    document.querySelector("body").style.overflowY = "hidden";
+                    scrollLine.style.display = "flex";
+
+                }
+                else if(e.deltaY == 100 && scrollLine.style.width == `${window.innerWidth}px`){
+                    document.querySelector("body").style.overflowY = "auto";
+                    scrollLine.style.display = "none"; 
+                    return;
+                }
+
+                if (scrollLine.style.width == "0px" && e.deltaY == -100){
+                    document.querySelector("body").style.overflowY = "auto";
+                    document.querySelector("#textWrapper5").style.display = "none"; 
+                    document.querySelector("#horizontalScroll").style.top = "300vh";
+                    document.querySelector(".mainWrapper").style.display = "block";
+                    document.querySelector(".textWrapper").style.display = "flex";
+                    document.querySelector("#textWrapper2").style.display = "flex";
+                    window.scrollTo({left: 0, top: 2883, behaviour: "instant"}); 
+                }
+                e.preventDefault();
+                container.scrollLeft += e.deltaY / 3 ;
                 scrollLine.style.width = container.scrollLeft + "px";
             }
         })
@@ -143,6 +192,8 @@
         var lastScrollTop = 0;
         var textOpacity = 0.1
         window.addEventListener('scroll', function(e) {
+
+
             // console.log(window.pageYOffset);
             const target = document.querySelector(".scroll");
             var st = window.pageYOffset || document.documentElement.scrollTop;
