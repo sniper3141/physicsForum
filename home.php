@@ -104,7 +104,7 @@
         let scrollLine = document.querySelector("#scroll");
         var counter = 1;
         container.addEventListener("wheel", (e) => {
-            if (window.pageYOffset == 2883){
+            if (window.pageYOffset == (window.innerHeight * 3)){
                 scrollLine.style.display = "flex";
                 scrollLine.style.top = "399.5vh";
                 if (e.deltaY == 100 && counter < 13){
