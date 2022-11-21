@@ -213,7 +213,7 @@
 
             const Nat5PhotoSrcArray = [
             ["Nat 5 Posters/Waves, Radiation & Properties of Matter/Waves.png", "/Nat 5 Posters/Waves, Radiation & Properties of Matter/Diffraction.png", "/Nat 5 Posters/Waves, Radiation & Properties of Matter/Sound.png", "/Nat 5 Posters/Waves, Radiation & Properties of Matter/Ultrasound.png", "/Nat 5 Posters/Waves, Radiation & Properties of Matter/Reflection-&-Refraction.png", "/Nat 5 Posters/Waves, Radiation & Properties of Matter/TIR-&-EM-Spectrum.png"],
-            ["Nat 5 Posters/Waves, Radiation & Properties of Matter/Current-and-Charge-Nat-5.png", "Nat 5 Posters/Waves, Radiation & Properties of Matter/Curcuit-Symbols.png"]
+            ["Nat 5 Posters/Waves, Radiation & Properties of Matter/Current-and-Charge-Nat-5.png", "Nat 5 Posters/Waves, Radiation & Properties of Matter/Curcuit-Symbols.png", "Nat 5 Posters/Electricity/Current-and-Resistance.png", "Nat 5 Posters/Electricity/Ohms-Law.png", "Nat 5 Posters/Electricity/Energy-an-Power.png", "Nat 5 Posters/Electricity/Power.png"]
             ]
 
             document.getElementById("modal").style.display = "flex";
@@ -262,7 +262,7 @@
             }
 
             else if (document.querySelector("#ParticlesNav").innerHTML == "Unit 2 - Electricity" && document.querySelector("#ParticlesNav").classList.contains("underline")){
-                for (let i = 0; i <= 2; i++){
+                for (let i = 0; i <= 6; i++){
                     if (imageId == `img${i}`){
                         window.scrollTo({ top: 0, behavior: 'smooth' });
                         document.getElementById("modalImage").src = Nat5PhotoSrcArray[1][i];
@@ -418,14 +418,14 @@
                 document.querySelector("#info1").innerHTML = "AC and DC Current and Charge";
                 document.querySelector("#img2").src = '/Nat 5 Posters/Waves, Radiation & Properties of Matter/Curcuit-Symbols.png';
                 document.querySelector("#info2").innerHTML = "Common Curcuit Symbols and Names";
-                document.querySelector("#img3").src = '';
-                document.querySelector("#info3").innerHTML = "";
-                document.querySelector("#img4").src = '';
-                document.querySelector("#info4").innerHTML = "";
-                document.querySelector("#img5").src = '';
-                document.querySelector("#info5").innerHTML = "";
-                document.querySelector("#img6").src = '';
-                document.querySelector("#info6").innerHTML = "";
+                document.querySelector("#img3").src = '/Nat 5 Posters/Electricity/Current-and-Resistance.png';
+                document.querySelector("#info3").innerHTML = "Current, Resistance, Conductors and Insulators";
+                document.querySelector("#img4").src = '/Nat 5 Posters/Electricity/Ohms-Law.png';
+                document.querySelector("#info4").innerHTML = "Current and Resistance in Parallel and Ohms Law";
+                document.querySelector("#img5").src = '/Nat 5 Posters/Electricity/Energy-an-Power.png';
+                document.querySelector("#info5").innerHTML = "Bulb Current and Voltage and Power and Energy";
+                document.querySelector("#img6").src = 'Nat 5 Posters/Electricity/Power.png';
+                document.querySelector("#info6").innerHTML = "Fuse Ratings and Power Equations";
                 
 
 
@@ -604,14 +604,14 @@
                 document.querySelector("#info1").innerHTML = "AC and DC Current and Charge";
                 document.querySelector("#img2").src = '/Nat 5 Posters/Waves, Radiation & Properties of Matter/Curcuit-Symbols.png';
                 document.querySelector("#info2").innerHTML = "Common Curcuit Symbols and Names";
-                document.querySelector("#img3").src = '';
-                document.querySelector("#info3").innerHTML = "";
-                document.querySelector("#img4").src = '';
-                document.querySelector("#info4").innerHTML = "";
-                document.querySelector("#img5").src = '';
-                document.querySelector("#info5").innerHTML = "";
-                document.querySelector("#img6").src = '';
-                document.querySelector("#info6").innerHTML = "";
+                document.querySelector("#img3").src = '/Nat 5 Posters/Electricity/Current-and-Resistance.png';
+                document.querySelector("#info3").innerHTML = "Current, Resistance, Conductors and Insulators";
+                document.querySelector("#img4").src = '/Nat 5 Posters/Electricity/Ohms-Law.png';
+                document.querySelector("#info4").innerHTML = "Current and Resistance in Parallel and Ohms Law";
+                document.querySelector("#img5").src = '/Nat 5 Posters/Electricity/Energy-an-Power.png';
+                document.querySelector("#info5").innerHTML = "Bulb Current and Voltage and Power and Energy";
+                document.querySelector("#img6").src = 'Nat 5 Posters/Electricity/Power.png';
+                document.querySelector("#info6").innerHTML = "Fuse Ratings and Power Equations";
                 for (let i = 7; i <= 17; i++){
                     document.querySelector(`#item${i}`).classList.add("hidden");
                 }
