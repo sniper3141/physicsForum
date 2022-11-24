@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="/css/forum.css" rel="stylesheet"></link>
     <title>Document</title>
 </head>
 <body>
@@ -36,33 +37,35 @@
 
             //NOTE ON THESE IF STATEMENTS: There is no way a user could know the random number and therefore they have no way to access the main.php without logging in
     ?>
-
-    <h1>Welcome To ESMS's Physics Forum</h1>
-
-
-    <?php
-        require_once './includes/dbh.inc.php';
-        require_once './includes/function.inc.php';
-
-        $questionInfo = getInfo($conn);
-
-        for ($row = 0; $row < sizeof($questionInfo)/3; $row++){
-            echo '
-                <div>
-                    <h3>'.$questionInfo[$row*3].'</h3>
-                    <p>'.$questionInfo[$row*3 + 1].'</p>
-                    <h5>'.$questionInfo[$row*3 + 2].'</h5>
-                </div>
-            ';
-        }
+    <main>
+        <h1>Welcome To ESMS's Physics Forum</h1>
 
 
+        <?php
+            require_once './includes/dbh.inc.php';
+            require_once './includes/function.inc.php';
 
-    ?>
+            $questionInfo = getInfo($conn);
 
-    <h1>Forum</h1>
-    <form class='form signup' action="./includes/handleForum.inc.php" method="post" autocomplete="off">
-        <input type="text" name="mainForum" required>
-    </form>
+            for ($row = 0; $row < sizeof($questionInfo)/3; $row++){
+                echo '
+                    <div class="forumItem">
+                        <h3>'.$questionInfo[$row*3].'</h3>
+                        <p>'.$questionInfo[$row*3 + 1].'</p>
+                        <h5>'.$questionInfo[$row*3 + 2].'</h5>
+                    </div>
+                ';
+            }
+
+
+
+        ?>
+    </main>
+    <div id="formWrapper">
+        <h2>Forum</h2>
+        <form class='form signup' action="./includes/handleForum.inc.php" method="post" autocomplete="off">
+            <input type="text" name="mainForum" required>
+        </form>
+    </div>
 </body>
 </html>

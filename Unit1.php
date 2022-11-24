@@ -18,7 +18,7 @@
             list-style-type: none;
             margin-bottom: 2rem;
             background-color: white;
-            border: solid black 0.2rem;
+            border: solid #1C1D25 0.2rem;
             margin-right: 1.5rem;
         }
         #imageList{
@@ -32,7 +32,7 @@
             grid-template-columns: 33.3% 33.3% 33.4%;
             align-items: center;
             /* justify-content: center; */
-            background-color: black;
+            background-color: #1C1D25;
             margin-bottom: 1rem;  
             margin-top: 0; 
             margin-left: 0;
@@ -190,7 +190,7 @@
 
     <script>
         function hoverStateIn(id){
-            document.getElementById(`item${id}`).style.boxShadow = "0rem 0rem 0.8rem 0.2rem black";
+            document.getElementById(`item${id}`).style.boxShadow = "0rem 0rem 0.8rem 0.2rem #1C1D25";
         }
         function hoverStateOut(id){
             document.getElementById(`item${id}`).style.boxShadow = "0.5rem 0.5rem 0.75rem transparent"; 
