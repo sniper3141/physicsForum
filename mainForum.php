@@ -7,7 +7,7 @@
     <link href="/css/forum.css" rel="stylesheet"></link>
     <title>Document</title>
 </head>
-<body>
+<body onload="scrollBottom()">
     <?php
 
     $counter = 0;
@@ -38,7 +38,7 @@
             //NOTE ON THESE IF STATEMENTS: There is no way a user could know the random number and therefore they have no way to access the main.php without logging in
     ?>
     <main>
-        <h1>Welcome To ESMS's Physics Forum</h1>
+        <!-- <h1>Welcome To ESMS's Physics Forum</h1> -->
 
 
         <?php
@@ -50,9 +50,13 @@
             for ($row = 0; $row < sizeof($questionInfo)/3; $row++){
                 echo '
                     <div class="forumItem">
-                        <h3>'.$questionInfo[$row*3].'</h3>
-                        <p>'.$questionInfo[$row*3 + 1].'</p>
-                        <h5>'.$questionInfo[$row*3 + 2].'</h5>
+                        <div class="emailAndTimeContainer"> 
+                            <h5 class="userEmail">'.$questionInfo[$row*3 + 2].'</h5>
+                            <h6 class="timeOfQuestion">'.$questionInfo[$row*3 + 1].'</h6>
+                        </div>
+                        <p>'.$questionInfo[$row*3].'</p>
+                        
+                        
                     </div>
                 ';
             }
@@ -62,10 +66,58 @@
         ?>
     </main>
     <div id="formWrapper">
-        <h2>Forum</h2>
-        <form class='form signup' action="./includes/handleForum.inc.php" method="post" autocomplete="off">
+        <div id="textWrapper" onclick="clicked()">
+            <h2 id="newQuestionButton">New Question</h2>
+        </div>
+        <form class='form signup' id="hidden" action="./includes/handleForum.inc.php" method="post" autocomplete="off">
             <input type="text" name="mainForum" required>
         </form>
     </div>
 </body>
+<script>
+    function scrollBottom(){
+        const main = document.querySelector("main")
+        main.scrollTo(0, main.scrollHeight)
+    }
+
+    function clicked(){
+        const button = document.querySelector("#textWrapper");
+        const wrapper = document.querySelector("#formWrapper")
+        button.style.color = "rgb(255, 255, 255, 0)";
+        setTimeout(() => {
+            button.style.width = "0";
+            button.style.height = "0";
+            wrapper.addEventListener("click", showButton);
+        }, 100)
+        setTimeout(() => {
+            button.style.display = "none";
+        }, 300)
+        
+        // console.log("1")
+    }
+
+    function showButton(){
+        const button = document.querySelector("#textWrapper");
+        const wrapper = document.querySelector("#formWrapper")
+        if (button.style.display != "none"){
+            setTimeout(() => {
+                button.style.display = "flex";
+                button.style.width = "15rem";
+                button.style.height = "3.5rem"
+                button.style.color = "rgb(255, 255, 255, 1)";
+                return;
+            }, 300)
+        }
+        button.style.display = "flex";
+        setTimeout(() => {
+            button.style.width = "15rem";
+            button.style.height = "3.5rem";
+        }, 1);
+        setTimeout(() => {
+            button.style.color = "rgb(255, 255, 255, 1)";
+            wrapper.removeEventListener("click", showButton);
+        }, 100)
+        console.log("2")
+    }
+</script>
 </html>
