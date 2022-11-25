@@ -50,11 +50,14 @@
             for ($row = 0; $row < sizeof($questionInfo)/3; $row++){
                 echo '
                     <div class="forumItem">
-                        <div class="emailAndTimeContainer"> 
-                            <h6 class="userEmail">'.$questionInfo[$row*3 + 2].'</h5>
-                            <h6 class="timeOfQuestion">'.$questionInfo[$row*3 + 1].'</h6>
+                        <div id="paddingContainer">
+                            <div class="emailAndTimeContainer"> 
+                                <h6 class="userEmail">'.$questionInfo[$row*3 + 2].'</h5>
+                                <h6 class="timeOfQuestion">'.$questionInfo[$row*3 + 1].'</h6>
+                            </div>
+                            <p>'.$questionInfo[$row*3].'</p>
                         </div>
-                        <p>'.$questionInfo[$row*3].'</p>
+                        <p id="replyBtn" class="s'.$row.'" onclick="openReplyForum(this.className)">Reply</p>
                         
                         
                     </div>
@@ -103,7 +106,7 @@
         const wrapper = document.querySelector("#formWrapper")
         const forum = document.querySelector(".forumInput");
 
-        if (forum === document.activeElement){
+        if (forum === document.activeElement || forum.value !== ""){
             // console.log("true")
             return;
         }
@@ -130,8 +133,17 @@
         }, 100)
     }
 
-    // showInput(){
-        
-    // }
+
+    function openReplyForum(className){
+        const reply = document.querySelector("." + className);
+        const main = document.querySelector("main");
+        reply.style.padding = "0.5% 0 3% 1.5%";
+        main.style.scrollBehavior = "smooth";
+        setTimeout(() => {
+            main.scrollBy(0, 30);
+        }, 300);
+        // main.style.scrollBehaviour = "instant";
+
+    }
 </script>
 </html>
