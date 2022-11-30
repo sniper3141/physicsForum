@@ -57,7 +57,7 @@
                             </div>
                             <p>'.$questionInfo[$row*3].'</p>
                         </div>
-                        <p id="replyBtn" class="s'.$row.'" onclick="openReplyForum(this.className)">Reply</p>
+                        <p id="replyBtn" class="s'.$row.'" onclick="openReplyForum(this.className)"></p>
                         
                         
                     </div>
@@ -78,9 +78,20 @@
     </div>
 </body>
 <script>
+    
+    var focus = function(){
+        return 1;  
+    }
+
     function scrollBottom(){
         const main = document.querySelector("main")
         main.scrollTo(0, main.scrollHeight)
+
+        const reply = document.querySelectorAll("#replyBtn");
+
+        reply.forEach(rep => {
+            rep.innerHTML = "Reply";
+        })
     }
 
     function clicked(){
@@ -133,17 +144,60 @@
         }, 100)
     }
 
-
+    let counter = 1;
     function openReplyForum(className){
+
         const reply = document.querySelector("." + className);
+        if (counter % 2 !== 0){
+            window.removeEventListener("click", closeReplyForum);
+            counter += 1;
+        }
+        else{
+            counter += 1;
+            window.addEventListener("click", closeReplyForum);
+        }
+        // console.log(window)
+        
         const main = document.querySelector("main");
         reply.style.padding = "0.5% 0 3% 1.5%";
         main.style.scrollBehavior = "smooth";
         setTimeout(() => {
             main.scrollBy(0, 30);
-        }, 300);
-        // main.style.scrollBehaviour = "instant";
+        }, 10);
+        // console.log(counter)
+        displayReplyForm(reply);
+    }
 
+    function closeReplyForum(){
+        setTimeout(() => {
+            const reply = document.querySelectorAll("#replyBtn");
+            // console.log(reply)
+            reply.forEach(rep => {
+                rep.style.padding = "0.5% 0 0.5% 1.5%";
+                rep.innerHTML = "Reply";
+            })
+            const main = document.querySelector("main");
+            // reply.style.padding = "0.5% 0.5% 1.5%";
+            main.style.scrollBehavior = "smooth";
+            setTimeout(() => {
+                main.scrollBy(0, -10);
+            }, 10);
+            window.removeEventListener("click", closeReplyForum);
+            console.log(focus);
+        }, 10);
+        
+    }
+
+
+    function displayReplyForm(className){
+        // console.log(className)
+        // setTimeout(() => {
+            className.innerHTML = "<form action='replyForum.inc.php'><input type='text' class='replyForm' name='replyForum' placeholder='Enter your response' onfocus='focus()' required></form>";
+            className.style.padding = "0.5% 0 1% 1.5%"
+            // className.style.transition = "0s"
+            // return
+        // }, 300)
+        
     }
 </script>
 </html>
