@@ -163,7 +163,7 @@ function loginUser($conn, $email, $pwd) {
 }
 
 function queryUserId($conn, $email, $question){
-    //sets the sql statement to find tempCode
+
     $sql = "SELECT id FROM users WHERE usersEmail = ?";
     $stmt = mysqli_stmt_init($conn);
 
@@ -177,7 +177,7 @@ function queryUserId($conn, $email, $question){
 
     $resultData = mysqli_stmt_get_result($stmt); 
     $data = mysqli_fetch_assoc($resultData);
-    print_r($data["id"]);
+    // print_r($data["id"]);
     $dataOutOfArray = $data["id"];
     session_start();
     $_SESSION["emailId"] = $dataOutOfArray;
@@ -226,6 +226,88 @@ function getInfo($conn){
     $result = mysqli_stmt_get_result($stmt);
     
     // print_r($result);
+    
+
+    while ($row = mysqli_fetch_object($result)) {
+        foreach ($row as $r) {
+            // print($r);
+            $new = array_push($data, $r);
+        }
+    }
+
+    // print_r($data);
+    return $data;
+}
+
+
+function queryInfoForReply($reply, $questionId, $conn){
+    session_start();
+    $email = $_SESSION['email'];
+
+    $sql = "SELECT id FROM users WHERE usersEmail = ?";
+    $stmt = mysqli_stmt_init($conn);
+
+    if (!mysqli_stmt_prepare($stmt, $sql)) {
+        header("location: ../index.php?error=stmtfailed");
+        exit();
+    }
+
+    mysqli_stmt_bind_param($stmt, "s", $email);
+    mysqli_stmt_execute($stmt);
+
+    $resultData = mysqli_stmt_get_result($stmt); 
+    $data = mysqli_fetch_assoc($resultData);
+    // print_r($data["id"]);
+    $dataOutOfArray = $data["id"];
+    $emailId = $dataOutOfArray;
+    mysqli_stmt_close($stmt);
+    // print_r($emailId);
+    addReply($emailId, $reply, $questionId, $conn);
+}
+
+
+function addReply($emailId, $reply, $questionId, $conn){
+    $sql = "INSERT INTO replyforum (replyContent, mainQuestionId, replyUsersId) VALUES (?, ?, ?);";
+
+    $stmt = mysqli_stmt_init($conn);
+
+    //error message if something fails
+    if (!mysqli_stmt_prepare($stmt, $sql)) {
+        header("location: ../mainForum.php?error=stmtfailed");
+        exit();
+    }
+
+    mysqli_stmt_bind_param($stmt, "sii", $reply, $questionId, $emailId);
+    mysqli_stmt_execute($stmt);
+    mysqli_stmt_close($stmt);
+    header("location: ../mainForum.php?i=$_SESSION[random]");
+    exit();
+
+}
+
+
+
+function getReplyInfo($conn){
+
+    $sqlQuery = "SELECT replyContent, timeOfReply, questionId, usersEmail FROM replyforum, primaryforum, users WHERE replyforum.mainQuestionId = primaryforum.questionId AND replyforum.replyUsersId = users.id;";
+    $stmt = mysqli_stmt_init($conn);
+
+    //error message if something fails
+    if (!mysqli_stmt_prepare($stmt, $sqlQuery)) {
+        //takes user to the main page
+        $_SESSION["random"] = rand();
+        header("location: ../mainForum.php?i=$_SESSION[random]&error=stmtfailed");
+        exit();
+    }
+
+
+    mysqli_stmt_execute($stmt);
+
+    $data = array();
+
+    $result = mysqli_stmt_get_result($stmt);
+    
+    // print_r(mysqli_fetch_object($result));
     
 
     while ($row = mysqli_fetch_object($result)) {

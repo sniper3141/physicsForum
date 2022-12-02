@@ -47,7 +47,21 @@
 
             $questionInfo = getInfo($conn);
 
+            $replyInfo = getReplyInfo($conn);
+            // print_r($replyInfo);
+            // echo "<br>";
+            // echo "<br>";
+            
+             
+
             for ($row = 0; $row < sizeof($questionInfo)/3; $row++){
+                $newRow = $row + 3;
+                 
+                
+                
+                
+
+                // print_r($replyInfo[$row]);
                 echo '
                     <div class="forumItem">
                         <div id="paddingContainer">
@@ -57,10 +71,41 @@
                             </div>
                             <p>'.$questionInfo[$row*3].'</p>
                         </div>
-                        <p id="replyBtn" class="s'.$row.'" onclick="openReplyForum(this.className)"></p>
+                        <div id="replies">
+                        <p class="smallerFont seeResponse" id="s'.$row.'" onclick="showReplies(this)">Show Responses</p>
+                ';
+
+                $newR = 2;
+                for ($r = 0; $r < sizeof($replyInfo)/4; $r++){
+                    if ($newRow == $replyInfo[$newR]){
+                        echo 
+                        '
+                        <div class="response">
+                            <p class="smallFont hidden" id="s'.$row.'">'.$replyInfo[$newR + 1].'</p>
+                            <p class="smallFont hidden" id="s'.$row.'">'.$replyInfo[$newR - 1].'</p>
+                        </div>
+                            <p class="smallFont hidden" id="s'.$row.'">'.$replyInfo[$newR - 2].'</p>
+                            <div class="line hidden" id="s'.$row.'"></div>
                         
+                        '
+                        ;
+                    }
+
+                    $newR += 4;
                         
-                    </div>
+                }
+
+                echo '
+                        </div>
+                        <form action="./includes/replyForum.inc.php" method="post" autocomplete="off">
+                        <input type="text" class="replyForm" name="replyForum" placeholder="Enter a response" required>
+                        <input type="text" value='.$newRow.' name="questionId" style="display:none">
+                        <input type="submit" value="submit" style="display: none">
+                    </form>
+
+
+                </div>
+
                 ';
             }
 
@@ -78,10 +123,6 @@
     </div>
 </body>
 <script>
-    
-    var focus = function(){
-        return 1;  
-    }
 
     function scrollBottom(){
         const main = document.querySelector("main")
@@ -89,9 +130,9 @@
 
         const reply = document.querySelectorAll("#replyBtn");
 
-        reply.forEach(rep => {
-            rep.innerHTML = "Reply";
-        })
+        // reply.forEach(rep => {
+        //     rep.innerHTML = "Reply";
+        // })
     }
 
     function clicked(){
@@ -144,69 +185,100 @@
         }, 100)
     }
 
-    let counter = 1;
-    function openReplyForum(className){
 
-        const reply = document.querySelector("." + className);
-        if (counter % 2 !== 0){
-            window.removeEventListener("click", closeReplyForum);
-            counter += 1;
-        }
-        else{
-            counter += 1;
-            window.addEventListener("click", closeReplyForum);
-        }
-        // console.log(window)
-        
-        const main = document.querySelector("main");
-        reply.style.padding = "0.5% 0 3% 1.5%";
-        main.style.scrollBehavior = "smooth";
-        setTimeout(() => {
-            main.scrollBy(0, 30);
-            console.log("scrolled")
-        }, 10);
-        // console.log(counter)
-        displayReplyForm(reply);
-    }
 
-    function closeReplyForum(){
-        const repForum = document.querySelector(".replyForm")
-        console.log(repForum === document.activeElement)
-        // console.log(document.activeElement);
-        if (repForum === document.activeElement || repForum.value !== ""){
-            console.log("active");
-            return;
+    function showReplies(idName){
+        if (idName.innerHTML == "Show Responses"){
+            const replies = document.querySelectorAll("#" + idName.id)
+            console.log(idName.innerHTML);
+            // const replies = document.querySelectorAll(".smallFont");
+            replies.forEach((rep) => {
+            rep.classList.remove("hidden");
+            idName.innerHTML = "Hide Responses";
+        })
         }
-        return;
-        setTimeout(() => {
-            const reply = document.querySelectorAll("#replyBtn");
-            // console.log(reply)
-            reply.forEach(rep => {
-                rep.style.padding = "0.5% 0 0.5% 1.5%";
-                rep.innerHTML = "Reply";
-            })
-            const main = document.querySelector("main");
-            // reply.style.padding = "0.5% 0.5% 1.5%";
-            main.style.scrollBehavior = "smooth";
-            setTimeout(() => {
-                main.scrollBy(0, -10);
-            }, 10);
-            window.removeEventListener("click", closeReplyForum);
-        }, 100);
+        else if (idName.innerHTML == "Hide Responses"){
+            const replies = document.querySelectorAll("#" + idName.id)
+            console.log(idName.innerHTML);
+            // const replies = document.querySelectorAll(".smallFont");
+            replies.forEach((rep) => {
+            rep.classList.add("hidden");
+            idName.classList.remove("hidden");
+            idName.innerHTML = "Show Responses";
+        })
+        }
         
     }
 
+    const reply = document.querySelectorAll("#replyBtn");
+    // console.log(reply)
+    // reply.addEventListener("click", () => {
+    //     console.log(reply);
+    // })
 
-    function displayReplyForm(className){
+    // let counter = 1;
+    // function openReplyForum(className){
+
+    //     const reply = document.querySelector("." + className);
+    //     if (counter % 2 !== 0){
+    //         window.removeEventListener("click", closeReplyForum);
+    //         counter += 1;
+    //     }
+    //     else{
+    //         counter += 1;
+    //         window.addEventListener("click", closeReplyForum);
+    //     }
+    //     // console.log(window)
+        
+    //     const main = document.querySelector("main");
+    //     reply.style.padding = "0.5% 0 3% 1.5%";
+    //     main.style.scrollBehavior = "smooth";
+    //     setTimeout(() => {
+    //         main.scrollBy(0, 30);
+    //         console.log("scrolled")
+    //     }, 10);
+    //     // console.log(counter)
+    //     displayReplyForm(reply);
+    // }
+
+    // function closeReplyForum(){
+    //     const repForum = document.querySelector(".replyForm")
+    //     console.log(repForum === document.activeElement)
+    //     // console.log(document.activeElement);
+    //     if (repForum === document.activeElement || repForum.value !== ""){
+    //         console.log("active");
+    //         return;
+    //     }
+    //     return;
+    //     setTimeout(() => {
+    //         const reply = document.querySelectorAll("#replyBtn");
+    //         // console.log(reply)
+    //         reply.forEach(rep => {
+    //             rep.style.padding = "0.5% 0 0.5% 1.5%";
+    //             rep.innerHTML = "Reply";
+    //         })
+    //         const main = document.querySelector("main");
+    //         // reply.style.padding = "0.5% 0.5% 1.5%";
+    //         main.style.scrollBehavior = "smooth";
+    //         setTimeout(() => {
+    //             main.scrollBy(0, -10);
+    //         }, 10);
+    //         window.removeEventListener("click", closeReplyForum);
+    //     }, 100);
+        
+    // }
+
+
+    // function displayReplyForm(className){
             
-        // console.log(className)
-        // setTimeout(() => {
-            className.innerHTML = "<form action='replyForum.inc.php'><input type='text' class='replyForm' name='replyForum' placeholder='Enter your response' onfocus='focus()' required></form>";
-            className.style.padding = "0.5% 0 1% 1.5%"
-            // className.style.transition = "0s"
-            // return
-        // }, 300)
+    //     // console.log(className)
+    //     // setTimeout(() => {
+    //         className.innerHTML = "<form action='replyForum.inc.php'><input type='text' class='replyForm' name='replyForum' placeholder='Enter your response' onfocus='focus()' required></form>";
+    //         className.style.padding = "0.5% 0 1% 1.5%"
+    //         // className.style.transition = "0s"
+    //         // return
+    //     // }, 300)
         
-    }
+    // }
 </script>
 </html>
