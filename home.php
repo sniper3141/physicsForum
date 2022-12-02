@@ -265,7 +265,9 @@
             
 
             lastScrollTop = st <= 0 ? 0 : st;
-            // const logoTarget = document.querySelector("#logo");
+            const logoTarget = document.querySelector("#logo");
+            var logoRate = scrolled * 1;
+            logoTarget.style.transform = "translate3d(0px, "+logoRate+"px, 0px)";
             // const logoTarget1 = document.querySelector("#logoText1");
             // const logoTarget2 = document.querySelector("#logoText2");
             // var logoRate = scrolled * -0.025;
@@ -273,7 +275,6 @@
             // logoTarget1.style.transform = "translate3d("+(-logoRate)+"px, 0px, 0px)";
             // logoTarget2.style.transform = "translate3d("+(-logoRate)+"px, 0px, 0px)";
 
-            
 
         });
     </script>
