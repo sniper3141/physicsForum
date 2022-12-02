@@ -163,12 +163,21 @@
         main.style.scrollBehavior = "smooth";
         setTimeout(() => {
             main.scrollBy(0, 30);
+            console.log("scrolled")
         }, 10);
         // console.log(counter)
         displayReplyForm(reply);
     }
 
     function closeReplyForum(){
+        const repForum = document.querySelector(".replyForm")
+        console.log(repForum === document.activeElement)
+        // console.log(document.activeElement);
+        if (repForum === document.activeElement || repForum.value !== ""){
+            console.log("active");
+            return;
+        }
+        return;
         setTimeout(() => {
             const reply = document.querySelectorAll("#replyBtn");
             // console.log(reply)
@@ -183,13 +192,13 @@
                 main.scrollBy(0, -10);
             }, 10);
             window.removeEventListener("click", closeReplyForum);
-            console.log(focus);
-        }, 10);
+        }, 100);
         
     }
 
 
     function displayReplyForm(className){
+            
         // console.log(className)
         // setTimeout(() => {
             className.innerHTML = "<form action='replyForum.inc.php'><input type='text' class='replyForm' name='replyForum' placeholder='Enter your response' onfocus='focus()' required></form>";

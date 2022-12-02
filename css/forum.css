@@ -128,7 +128,7 @@ p{
     justify-content: center;
     border-bottom-left-radius: 1rem;
     border-bottom-right-radius: 1rem;
-    transition: padding 0.5s ease-in-out;
+    /* transition: padding 0.5s ease-in-out; */
 }
 
 #replyBtn:hover{
