@@ -48,7 +48,10 @@
             $questionInfo = getInfo($conn);
 
             $replyInfo = getReplyInfo($conn);
+            // echo "<pre>";
             // print_r($replyInfo);
+            // echo "</pre>";
+
             // echo "<br>";
             // echo "<br>";
             
