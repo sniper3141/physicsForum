@@ -161,9 +161,10 @@
             else {
                 document.querySelector("#div1").style.backgroundColor = "#f1f1f1";
                 document.querySelector("#div2").style.backgroundColor = "#f1f1f1";
-                document.querySelector("#div3").style.backgroundColor = "#f1f1f1";
+                document.querySelector("#div3").style.backgroundImage = "url('AH/Electromagnetism/EMag-Collage.png')";
                 // document.querySelector("#title1").innerText = "Gravitation and Motion"
                 document.querySelector("#title2").innerText = "Coming Soon";
+                document.querySelector("#title3").innerText = "Electromagnetism";
                 // document.querySelector("#title3").innerText = "Electromagnetism"
             }
         }

@@ -205,6 +205,7 @@
 
 
         function openModal(imageId){
+            console.log(imageId)
             const HigherPhotoSrcArray = [
             ["Unit 1 Photos/Physics Motion Poster6.0.png", "Unit 1 Photos/Physics Tension and other things Poster2.0.jpg", "Unit 1 Photos/Explosions & Impulse.jpg", "Unit 1 Photos/Momentum Poster.jpg", "Unit 1 Photos/Projectiles & Gravity.jpg", "Unit 1 Photos/Special Relativity Poster 2.jpg", "Unit 1 Photos/Physics_poster_space.png", "Unit 1 Photos/The-Big-Bang-Theory.png"],
             ["Unit 2 Photos/Charges-in-E-Fields.png", "Unit 2 Photos/Electric-Fields.png", "Unit 2 Photos/Fundamental-Particles-Poster.png", "Unit 2 Photos/Interacting-Particles-Poster.png", "Unit 2 Photos/Irradiance-Poster.png", "Unit 2 Photos/Magnetic-fields-poster-(updated).png", "Unit 2 Photos/Nuclear-Physics-Poster.png", "Unit 2 Photos/Orders-of-magnitude-physics-poster.png", "Unit 2 Photos/Particle-accelerator-poster.png", "Unit 2 Photos/Refractive-Index-Poster.png", "Unit 2 Photos/Wave-Particle-Duality-Poster.png", "Unit 2 Photos/Spectra-Physics-Poster.png", "Unit 2 Photos/Total-Internal-Reflection-Poster.png", "Unit 2 Photos/Uncertainties-Physics-Poster.png", "Unit 2 Photos/Waves-&-Interference.png", "Unit 2 Photos/Work-function-Poster.png", "Unit 2 Photos/Youngs'-double-slit-experiment.png"],
@@ -215,6 +216,9 @@
             ["Nat 5 Posters/Waves, Radiation & Properties of Matter/Waves.png", "/Nat 5 Posters/Waves, Radiation & Properties of Matter/Diffraction.png", "/Nat 5 Posters/Waves, Radiation & Properties of Matter/Sound.png", "/Nat 5 Posters/Waves, Radiation & Properties of Matter/Ultrasound.png", "/Nat 5 Posters/Waves, Radiation & Properties of Matter/Reflection-&-Refraction.png", "/Nat 5 Posters/Waves, Radiation & Properties of Matter/TIR-&-EM-Spectrum.png"],
             ["Nat 5 Posters/Waves, Radiation & Properties of Matter/Current-and-Charge-Nat-5.png", "Nat 5 Posters/Waves, Radiation & Properties of Matter/Curcuit-Symbols.png", "Nat 5 Posters/Electricity/Current-and-Resistance.png", "Nat 5 Posters/Electricity/Ohms-Law.png", "Nat 5 Posters/Electricity/Energy-an-Power.png", "Nat 5 Posters/Electricity/Power.png"]
             ]
+
+            const AHPhotoSrcArray = ["AH/Electromagnetism/Electric-Fields-1.png", "AH/Electromagnetism/Electric-Potential.png", "AH/Electromagnetism/Magnetic-Fields.png", "AH/Electromagnetism/Solenoids-and-Magnetic-Induction.png", "AH/Electromagnetism/Forces-and-Magnetic-Fields.png", "AH/Electromagnetism/Capacitors-1.png", "AH/Electromagnetism/Capacitors-2.png", "AH/Electromagnetism/Inductors.png", "AH/Electromagnetism/Lenz's-Law.png", "AH/Electromagnetism/EM-Radiation.png"]
+        
 
             document.getElementById("modal").style.display = "flex";
             document.querySelector("#overlay").classList.remove("hidden");
@@ -267,6 +271,19 @@
                         window.scrollTo({ top: 0, behavior: 'smooth' });
                         document.getElementById("modalImage").src = Nat5PhotoSrcArray[1][i];
                         document.getElementById("downloadLink").href = Nat5PhotoSrcArray[1][i];
+                        return
+                    }
+                }
+            }
+
+            else if (document.querySelector("#ElectroNav").innerHTML == "Unit 3 - ElectroMagnetism" && document.querySelector("#ElectroNav").classList.contains("underline")){
+                console.log("hello dude")
+                for (let i = 0; i <= 9; i++){
+                    if (imageId == `img${i}`){
+                        window.scrollTo({ top: 0, behavior: 'smooth' });
+                        document.getElementById("modalImage").src = AHPhotoSrcArray[i];
+                        document.getElementById("downloadLink").href = AHPhotoSrcArray[i];
+                        
                         return
                     }
                 }
@@ -461,6 +478,42 @@
                     document.querySelector(`#item${i}`).classList.add("hidden");
                 }
                 window.scrollTo({ top: 0});
+            }
+            // ["AH/Electromagnetism/Electric-Fields-1.png", "AH/Electromagnetism/Electric-Potential.png", "AH/Electromagnetism/Magnetic-Fields.png", "AH/Electromagnetism/Solenoids-and-Magnetic-Induction.png", "AH/Electromagnetism/Forces-and-Magnetic-Fields.png", "AH/Electromagnetism/Capacitors-1.png", "AH/Electromagnetism/Capacitors-2.png", "AH/Electromagnetism/Inductors.png", "AH/Electromagnetism/Lenz's-Law.png", "AH/Electromagnetism/EM-Radiation.png"]
+            
+            else if(localStorage.getItem("storedVar") == "AHElectro"){
+                document.querySelector("#ElectroNav").classList.add("underline");
+                document.querySelector("#ParticlesNav").classList.remove("underline");
+                document.querySelector("#GravitationNav").classList.remove("underline");
+                document.querySelector("#GravitationNav").innerText = "Unit 1 - Rotational Motion and Astrophysics";
+                document.querySelector("#ParticlesNav").innerText = "Unit 2 - Quanta and Waves";
+                document.querySelector("#ElectroNav").innerText = "Unit 3 - ElectroMagnetism";
+                document.querySelector("#img1").src = 'AH/Electromagnetism/Electric-Fields-1.png';
+                document.querySelector("#info1").innerHTML = "Coulombs Law and Electric Fields";
+                document.querySelector("#img2").src = 'AH/Electromagnetism/Electric-Potential.png';
+                document.querySelector("#info2").innerHTML = "Electric Potential and Electronvolt";
+                document.querySelector("#img3").src = 'AH/Electromagnetism/Magnetic-Fields.png';
+                document.querySelector("#info3").innerHTML = "Magnetic Fields and Ferromagnetism";
+                document.querySelector("#img4").src = 'AH/Electromagnetism/Solenoids-and-Magnetic-Induction.png';
+                document.querySelector("#info4").innerHTML = "Solenoids and Magnetic Induction";
+                document.querySelector("#img5").src = 'AH/Electromagnetism/Forces-and-Magnetic-Fields.png';
+                document.querySelector("#info5").innerHTML = "Magnetic Forces on Conductors and Charged Particles";
+                document.querySelector("#img6").src = 'AH/Electromagnetism/Capacitors-1.png';
+                document.querySelector("#info6").innerHTML = "Time constant and Capacitive Reactance";
+                document.querySelector("#img7").src = 'AH/Electromagnetism/Capacitors-2.png';
+                document.querySelector("#info7").innerHTML = "Capacitive Reactance Equation";
+                document.querySelector("#img8").src = 'AH/Electromagnetism/Inductors.png';
+                document.querySelector("#info8").innerHTML = "Intro into Inductors and Back Emf";
+                document.querySelector("#img9").src = "AH/Electromagnetism/Lenz's-Law.png";
+                document.querySelector("#info9").innerHTML = "Lenz's Law, Inductive Reactance and Energy Stored in an Inductor";
+                document.querySelector("#img10").src = 'AH/Electromagnetism/EM-Radiation.png';
+                document.querySelector("#info10").innerHTML = "Electromagnetic Radiation Definition and Speed of Light Equation";
+                for (let i = 9; i <= 10; i++){
+                    document.querySelector(`#item${i}`).classList.remove("hidden");
+                }
+                for (let i = 11; i <= 17; i++){
+                    document.querySelector(`#item${i}`).classList.add("hidden");
+                }
             }
 
         }
